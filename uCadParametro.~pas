@@ -1,0 +1,137 @@
+unit uCadParametro;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, uCadPadrao, ZSqlUpdate, DB, ZAbstractRODataset,
+  ZAbstractDataset, ZDataset, ActnList, ImgList, Grids, DBGrids, ComCtrls,
+  StdCtrls, ToolWin, jpeg, ExtCtrls, Mask, DBCtrls, Buttons, XiButton,
+  ExtDlgs, Spin,IniFiles;
+
+type
+  TfCadParametro = class(TfCadPadrao)
+    Label2: TLabel;
+    DBEdit1: TDBEdit;
+    Label3: TLabel;
+    DBEdit2: TDBEdit;
+    Label4: TLabel;
+    DBEdit3: TDBEdit;
+    Label5: TLabel;
+    DBEdit4: TDBEdit;
+    Label6: TLabel;
+    DBEdit5: TDBEdit;
+    Label7: TLabel;
+    DBEdit6: TDBEdit;
+    Label8: TLabel;
+    Label9: TLabel;
+    Label44: TLabel;
+    DBEdit14: TDBEdit;
+    Label45: TLabel;
+    DBEdit43: TDBEdit;
+    Label46: TLabel;
+    DBEdit44: TDBEdit;
+    Tid: TIntegerField;
+    TRAZAO: TStringField;
+    TCNPJ: TStringField;
+    TENDERECO: TStringField;
+    TBAIRRO: TStringField;
+    TCIDADE: TStringField;
+    TUF: TStringField;
+    TCEP: TStringField;
+    TSITE: TStringField;
+    TEMAIL: TStringField;
+    TRESPONS: TStringField;
+    TTELEFONE: TStringField;
+    TFAX: TStringField;
+    Tlogo: TStringField;
+    Tex: TStringField;
+    Tfantasia: TStringField;
+    TidCidade: TIntegerField;
+    TMenuAtualizado: TDateField;
+    Tnum: TStringField;
+    TIE: TStringField;
+    DBLookupComboBox8: TDBLookupComboBox;
+    DBComboBox4: TDBComboBox;
+    procedure acInserirExecute(Sender: TObject);
+    procedure TNewRecord(DataSet: TDataSet);
+    procedure acEditarExecute(Sender: TObject);
+    procedure acSalvarExecute(Sender: TObject);
+    procedure XiButton2Click(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure DBComboBox4Exit(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  fCadParametro: TfCadParametro;
+
+implementation
+
+uses uDM, uMenu, uFuncao;
+
+{$R *.dfm}
+
+procedure TfCadParametro.acInserirExecute(Sender: TObject);
+begin
+ if T.RecordCount = 0 then
+  inherited
+ else
+  acEditar.Execute;
+
+  DBEdit1.SetFocus;
+end;
+
+procedure TfCadParametro.TNewRecord(DataSet: TDataSet);
+begin
+  inherited;
+  Tex.Value := 'N';
+end;
+
+procedure TfCadParametro.acEditarExecute(Sender: TObject);
+begin
+  inherited;
+  DBEdit1.SetFocus;
+end;
+
+procedure TfCadParametro.acSalvarExecute(Sender: TObject);
+begin
+  inherited;
+ DM.qParametro.Close;
+ DM.qParametro.Open; 
+end;
+
+procedure TfCadParametro.XiButton2Click(Sender: TObject);
+begin
+  inherited;
+{ if OpenPictureDialog1.Execute then
+  Tlogo.Text := OpenPictureDialog1.FileName; }
+end;
+
+procedure TfCadParametro.SpeedButton1Click(Sender: TObject);
+begin
+ {
+  if not(T.state in [dsEdit, dsInsert]) then
+     Exit;
+
+  OpenDialog1.InitialDir := ExtractFilePath(Application.ExeName) + '\';
+  OpenDialog1.Filter     := '*.jpg|*.jpg|*.jpeg|*.jpeg|*.bmp|*.bmp|*.ico|*.ico|*.emf|*.emf|*.wmf|*.wmf';
+
+ } 
+end;
+
+procedure TfCadParametro.DBComboBox4Exit(Sender: TObject);
+begin
+  inherited;
+  if TUF.Text <> '' then
+  begin
+    DM.qCid.Close;
+    DM.qCid.ParamByName('UF').Value := TUF.Text;
+    DM.qCid.Open;
+  end;
+end;
+
+end.

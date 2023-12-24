@@ -1,0 +1,1088 @@
+inherited fCadFunc: TfCadFunc
+  Left = 239
+  Top = 165
+  Caption = 'Usu'#225'rios'
+  ClientHeight = 605
+  OldCreateOrder = True
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited Image2: TImage
+    Height = 564
+  end
+  inherited EdPesq: TEdit
+    Left = 80
+    Width = 476
+  end
+  inherited PageControl1: TPageControl
+    Height = 522
+    ActivePage = TabSheet2
+    inherited TabSheet1: TTabSheet
+      inherited DBGrid1: TDBGrid
+        Height = 494
+        Columns = <
+          item
+            Expanded = False
+            FieldName = 'Id'
+            Width = 50
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'Nome'
+            Width = 200
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'Endereco'
+            Width = 200
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'Numero'
+            Title.Caption = 'N'#186
+            Width = 50
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'Bairro'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'Cidade'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'Cep'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'UF'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'Data'
+            Title.Caption = 'Data Adm'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'Nascimento'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'telefone'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'celular'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'fax'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'email'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'CPF'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'RG'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'User'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'Senha'
+            Visible = False
+          end>
+      end
+    end
+    inherited TabSheet2: TTabSheet
+      object Bevel1: TBevel
+        Left = 8
+        Top = 237
+        Width = 643
+        Height = 67
+      end
+      object Label2: TLabel
+        Left = 15
+        Top = 13
+        Width = 38
+        Height = 18
+        Caption = 'C'#243'digo'
+        FocusControl = DBEdit1
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Trebuchet MS'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = True
+      end
+      object Label3: TLabel
+        Left = 15
+        Top = 38
+        Width = 32
+        Height = 18
+        Caption = 'Nome'
+        FocusControl = DBEdit2
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Trebuchet MS'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = True
+      end
+      object Label4: TLabel
+        Left = 15
+        Top = 88
+        Width = 53
+        Height = 18
+        Caption = 'Endere'#231'o'
+        FocusControl = DBEdit3
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Trebuchet MS'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = True
+      end
+      object Label5: TLabel
+        Left = 15
+        Top = 113
+        Width = 34
+        Height = 18
+        Caption = 'Bairro'
+        FocusControl = DBEdit4
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Trebuchet MS'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = True
+      end
+      object Label6: TLabel
+        Left = 262
+        Top = 113
+        Width = 38
+        Height = 18
+        Caption = 'Cidade'
+        FocusControl = DBEdit5
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Trebuchet MS'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = True
+      end
+      object Label7: TLabel
+        Left = 489
+        Top = 113
+        Width = 21
+        Height = 18
+        Caption = 'CEP'
+        FocusControl = DBEdit6
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Trebuchet MS'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = True
+      end
+      object Label8: TLabel
+        Left = 598
+        Top = 113
+        Width = 15
+        Height = 18
+        Caption = 'UF'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Trebuchet MS'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = True
+      end
+      object Label9: TLabel
+        Left = 15
+        Top = 138
+        Width = 50
+        Height = 18
+        Caption = 'Telefone'
+        FocusControl = DBEdit8
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Trebuchet MS'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = True
+      end
+      object Label10: TLabel
+        Left = 166
+        Top = 13
+        Width = 52
+        Height = 18
+        Caption = 'Admiss'#227'o'
+        FocusControl = DBEdit10
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Trebuchet MS'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = True
+      end
+      object Label12: TLabel
+        Left = 15
+        Top = 164
+        Width = 35
+        Height = 18
+        Caption = 'E-mail'
+        FocusControl = DBEdit12
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Trebuchet MS'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = True
+      end
+      object lIERG: TLabel
+        Left = 257
+        Top = 63
+        Width = 15
+        Height = 18
+        Caption = 'RG'
+        FocusControl = DBEdit13
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Trebuchet MS'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = True
+      end
+      object lCPFCNPJ: TLabel
+        Left = 15
+        Top = 63
+        Width = 21
+        Height = 18
+        Caption = 'CPF'
+        FocusControl = DBEdit14
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Trebuchet MS'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = True
+      end
+      object Label14: TLabel
+        Left = 15
+        Top = 239
+        Width = 102
+        Height = 18
+        Caption = 'Acesso ao Sistema'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Trebuchet MS'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = True
+      end
+      object Label17: TLabel
+        Left = 73
+        Top = 257
+        Width = 56
+        Height = 18
+        Caption = 'UserName'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Trebuchet MS'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = True
+      end
+      object Label18: TLabel
+        Left = 191
+        Top = 257
+        Width = 33
+        Height = 18
+        Caption = 'Senha'
+        FocusControl = DBEdit9
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Trebuchet MS'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = True
+      end
+      object Label20: TLabel
+        Left = 475
+        Top = 63
+        Width = 86
+        Height = 18
+        Caption = 'Dt. Nascimento'
+        FocusControl = DBEdit19
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Trebuchet MS'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = True
+      end
+      object Label11: TLabel
+        Left = 561
+        Top = 89
+        Width = 13
+        Height = 18
+        Caption = 'N'#186
+        FocusControl = DBEdit16
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Trebuchet MS'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = True
+      end
+      object Label13: TLabel
+        Left = 367
+        Top = 257
+        Width = 89
+        Height = 18
+        Caption = 'Tipo de Usu'#225'rio'
+        FocusControl = DBEdit9
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Trebuchet MS'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = True
+      end
+      object Label15: TLabel
+        Left = 16
+        Top = 189
+        Width = 78
+        Height = 18
+        Caption = 'Vencto F'#233'rias'
+        FocusControl = DBEdit17
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Trebuchet MS'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Label16: TLabel
+        Left = 248
+        Top = 189
+        Width = 139
+        Height = 18
+        Caption = 'Vencto Exame Peri'#243'dico'
+        FocusControl = DBEdit18
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Trebuchet MS'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Label19: TLabel
+        Left = 340
+        Top = 13
+        Width = 70
+        Height = 18
+        Caption = 'Afastamento'
+        FocusControl = DBEdit20
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Trebuchet MS'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = True
+      end
+      object Label21: TLabel
+        Left = 192
+        Top = 138
+        Width = 40
+        Height = 18
+        Caption = 'Celular'
+        FocusControl = DBEdit8
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Trebuchet MS'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = True
+      end
+      object Label22: TLabel
+        Left = 359
+        Top = 138
+        Width = 62
+        Height = 18
+        Caption = 'Fax/Outros'
+        FocusControl = DBEdit8
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Trebuchet MS'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = True
+      end
+      object DBEdit1: TDBEdit
+        Left = 73
+        Top = 12
+        Width = 71
+        Height = 19
+        CharCase = ecUpperCase
+        Ctl3D = False
+        DataField = 'Id'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 0
+      end
+      object DBEdit2: TDBEdit
+        Left = 73
+        Top = 37
+        Width = 585
+        Height = 19
+        CharCase = ecUpperCase
+        Ctl3D = False
+        DataField = 'Nome'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 3
+      end
+      object DBEdit3: TDBEdit
+        Left = 73
+        Top = 87
+        Width = 480
+        Height = 19
+        CharCase = ecUpperCase
+        Ctl3D = False
+        DataField = 'Endereco'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 7
+      end
+      object DBEdit4: TDBEdit
+        Left = 73
+        Top = 112
+        Width = 186
+        Height = 19
+        CharCase = ecUpperCase
+        Ctl3D = False
+        DataField = 'Bairro'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 9
+      end
+      object DBEdit5: TDBEdit
+        Left = 301
+        Top = 112
+        Width = 185
+        Height = 19
+        CharCase = ecUpperCase
+        Ctl3D = False
+        DataField = 'Cidade'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 10
+      end
+      object DBEdit6: TDBEdit
+        Left = 512
+        Top = 112
+        Width = 83
+        Height = 19
+        CharCase = ecUpperCase
+        Ctl3D = False
+        DataField = 'Cep'
+        DataSource = D
+        MaxLength = 10
+        ParentCtl3D = False
+        TabOrder = 11
+      end
+      object DBEdit8: TDBEdit
+        Left = 73
+        Top = 137
+        Width = 112
+        Height = 19
+        CharCase = ecUpperCase
+        Ctl3D = False
+        DataField = 'telefone'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 13
+      end
+      object DBEdit10: TDBEdit
+        Left = 225
+        Top = 12
+        Width = 95
+        Height = 19
+        CharCase = ecUpperCase
+        Ctl3D = False
+        DataField = 'Data'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 1
+      end
+      object DBEdit12: TDBEdit
+        Left = 73
+        Top = 163
+        Width = 424
+        Height = 19
+        CharCase = ecLowerCase
+        Ctl3D = False
+        DataField = 'email'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 16
+      end
+      object DBEdit13: TDBEdit
+        Left = 281
+        Top = 62
+        Width = 145
+        Height = 19
+        CharCase = ecUpperCase
+        Ctl3D = False
+        DataField = 'RG'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 5
+      end
+      object DBEdit14: TDBEdit
+        Left = 73
+        Top = 62
+        Width = 175
+        Height = 19
+        CharCase = ecUpperCase
+        Ctl3D = False
+        DataField = 'CPF'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 4
+      end
+      object DBComboBox1: TDBComboBox
+        Left = 614
+        Top = 110
+        Width = 44
+        Height = 21
+        BevelKind = bkFlat
+        Ctl3D = False
+        DataField = 'UF'
+        DataSource = D
+        ItemHeight = 13
+        Items.Strings = (
+          'AC'
+          'AL'
+          'AM'
+          'AP'
+          'BA'
+          'CE'
+          'DF'
+          'ES'
+          'GO'
+          'MA'
+          'MG'
+          'MS'
+          'MT'
+          'PA'
+          'PB'
+          'PE'
+          'PI'
+          'PR'
+          'RJ'
+          'RN'
+          'RO'
+          'RR'
+          'RS'
+          'SC'
+          'SE'
+          'SP'
+          'TO')
+        ParentCtl3D = False
+        TabOrder = 12
+      end
+      object DBEdit9: TDBEdit
+        Left = 191
+        Top = 273
+        Width = 110
+        Height = 19
+        CharCase = ecUpperCase
+        Ctl3D = False
+        DataField = 'Senha'
+        DataSource = D
+        ParentCtl3D = False
+        PasswordChar = '#'
+        TabOrder = 20
+      end
+      object DBEdit7: TDBEdit
+        Left = 73
+        Top = 273
+        Width = 110
+        Height = 19
+        CharCase = ecUpperCase
+        Ctl3D = False
+        DataField = 'User'
+        DataSource = D
+        MaxLength = 10
+        ParentCtl3D = False
+        TabOrder = 19
+      end
+      object DBEdit19: TDBEdit
+        Left = 563
+        Top = 62
+        Width = 95
+        Height = 19
+        CharCase = ecUpperCase
+        Ctl3D = False
+        DataField = 'Nascimento'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 6
+      end
+      object DBEdit11: TDBEdit
+        Left = 241
+        Top = 137
+        Width = 112
+        Height = 19
+        CharCase = ecUpperCase
+        Ctl3D = False
+        DataField = 'celular'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 14
+      end
+      object DBEdit15: TDBEdit
+        Left = 426
+        Top = 137
+        Width = 112
+        Height = 19
+        CharCase = ecUpperCase
+        Ctl3D = False
+        DataField = 'fax'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 15
+      end
+      object DBEdit16: TDBEdit
+        Left = 575
+        Top = 88
+        Width = 83
+        Height = 19
+        CharCase = ecUpperCase
+        Ctl3D = False
+        DataField = 'Numero'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 8
+      end
+      object DBLookupComboBox1: TDBLookupComboBox
+        Left = 368
+        Top = 273
+        Width = 257
+        Height = 19
+        Ctl3D = False
+        DataField = 'Tipo'
+        DataSource = D
+        KeyField = 'Id'
+        ListField = 'Descricao'
+        ListSource = dTP
+        ParentCtl3D = False
+        TabOrder = 21
+      end
+      object DBEdit17: TDBEdit
+        Left = 96
+        Top = 188
+        Width = 105
+        Height = 19
+        Ctl3D = False
+        DataField = 'venc_ferias'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 17
+      end
+      object DBEdit18: TDBEdit
+        Left = 392
+        Top = 188
+        Width = 105
+        Height = 19
+        Ctl3D = False
+        DataField = 'venc_exame'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 18
+      end
+      object DBEdit20: TDBEdit
+        Left = 417
+        Top = 12
+        Width = 95
+        Height = 19
+        CharCase = ecUpperCase
+        Ctl3D = False
+        DataField = 'Afastamento'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 2
+      end
+    end
+  end
+  inherited ImageList1: TImageList
+    Left = 752
+    Top = 240
+  end
+  inherited D: TDataSource
+    Left = 752
+    Top = 112
+  end
+  inherited ActionList1: TActionList
+    Left = 720
+    Top = 240
+  end
+  inherited T: TZQuery
+    OnNewRecord = TNewRecord
+    SQL.Strings = (
+      'select * from usuario'
+      'where ID <> 1 '
+      '     and  nome like :pesq       '
+      'order by nome')
+    Params = <
+      item
+        DataType = ftUnknown
+        Name = 'pesq'
+        ParamType = ptUnknown
+      end>
+    Left = 688
+    Top = 112
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'pesq'
+        ParamType = ptUnknown
+      end>
+    object TId: TIntegerField
+      FieldName = 'Id'
+    end
+    object TNome: TStringField
+      FieldName = 'Nome'
+      Size = 50
+    end
+    object TSenha: TStringField
+      FieldName = 'Senha'
+      Size = 15
+    end
+    object TData: TDateField
+      FieldName = 'Data'
+      EditMask = '!99/99/0000;1;_'
+    end
+    object TUser: TStringField
+      FieldName = 'User'
+      Size = 15
+    end
+    object TTipo: TIntegerField
+      FieldName = 'Tipo'
+    end
+    object TAfastamento: TDateField
+      FieldName = 'Afastamento'
+      EditMask = '!99/99/0000;1;_'
+    end
+    object TRG: TStringField
+      FieldName = 'RG'
+      Size = 12
+    end
+    object TNascimento: TDateField
+      FieldName = 'Nascimento'
+      EditMask = '!99/99/0000;1;_'
+    end
+    object TEndereco: TStringField
+      FieldName = 'Endereco'
+      Size = 70
+    end
+    object TNumero: TStringField
+      FieldName = 'Numero'
+      Size = 10
+    end
+    object TBairro: TStringField
+      FieldName = 'Bairro'
+      Size = 50
+    end
+    object TCidade: TStringField
+      FieldName = 'Cidade'
+      Size = 50
+    end
+    object TCep: TIntegerField
+      FieldName = 'Cep'
+      EditFormat = '99.999-999;0;_'
+    end
+    object TUF: TStringField
+      FieldName = 'UF'
+      Size = 2
+    end
+    object Ttelefone: TStringField
+      FieldName = 'telefone'
+      Size = 12
+    end
+    object Tcelular: TStringField
+      FieldName = 'celular'
+      Size = 12
+    end
+    object Tfax: TStringField
+      FieldName = 'fax'
+      Size = 12
+    end
+    object Temail: TStringField
+      FieldName = 'email'
+      Size = 50
+    end
+    object Tvenc_ferias: TDateField
+      FieldName = 'venc_ferias'
+      EditMask = '!99/99/0000;1;_'
+    end
+    object Tvenc_exame: TDateField
+      FieldName = 'venc_exame'
+      EditMask = '!99/99/0000;1;_'
+    end
+    object TCPF: TStringField
+      FieldName = 'CPF'
+      EditMask = '999.999.999-99;0;_'
+      Size = 11
+    end
+  end
+  inherited up: TZUpdateSQL
+    DeleteSQL.Strings = (
+      'DELETE FROM usuario'
+      'WHERE'
+      
+        '  ((usuario.Id IS NULL AND :OLD_Id IS NULL) OR (usuario.Id = :OL' +
+        'D_Id))')
+    InsertSQL.Strings = (
+      'INSERT INTO usuario'
+      
+        '  (usuario.Id, usuario.Nome, usuario.Senha, usuario.Data, usuari' +
+        'o.User, '
+      'usuario.Tipo, '
+      
+        '   usuario.Afastamento, usuario.CPF, usuario.RG, usuario.Nascime' +
+        'nto, '
+      'usuario.Endereco, '
+      
+        '   usuario.Numero, usuario.Bairro, usuario.Cidade, usuario.Cep, ' +
+        'usuario.UF, '
+      
+        '   usuario.telefone, usuario.celular, usuario.fax, usuario.email' +
+        ', '
+      'usuario.venc_ferias, '
+      '   usuario.venc_exame)'
+      'VALUES'
+      
+        '  (:Id, :Nome, :Senha, :Data, :User, :Tipo, :Afastamento, :CPF, ' +
+        ':RG, '
+      ':Nascimento, '
+      
+        '   :Endereco, :Numero, :Bairro, :Cidade, :Cep, :UF, :telefone, :' +
+        'celular, '
+      '   :fax, :email, :venc_ferias, :venc_exame)')
+    ModifySQL.Strings = (
+      'UPDATE usuario SET'
+      '  usuario.Nome = :Nome,'
+      '  usuario.Senha = :Senha,'
+      '  usuario.Data = :Data,'
+      '  usuario.User = :User,'
+      '  usuario.Tipo = :Tipo,'
+      '  usuario.Afastamento = :Afastamento,'
+      '  usuario.CPF = :CPF,'
+      '  usuario.RG = :RG,'
+      '  usuario.Nascimento = :Nascimento,'
+      '  usuario.Endereco = :Endereco,'
+      '  usuario.Numero = :Numero,'
+      '  usuario.Bairro = :Bairro,'
+      '  usuario.Cidade = :Cidade,'
+      '  usuario.Cep = :Cep,'
+      '  usuario.UF = :UF,'
+      '  usuario.telefone = :telefone,'
+      '  usuario.celular = :celular,'
+      '  usuario.fax = :fax,'
+      '  usuario.email = :email,'
+      '  usuario.venc_ferias = :venc_ferias,'
+      '  usuario.venc_exame = :venc_exame'
+      'WHERE'
+      
+        '  ((usuario.Id IS NULL AND :OLD_Id IS NULL) OR (usuario.Id = :OL' +
+        'D_Id))')
+    Left = 720
+    Top = 112
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'Nome'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'Senha'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'Data'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'User'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'Tipo'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'Afastamento'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'CPF'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'RG'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'Nascimento'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'Endereco'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'Numero'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'Bairro'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'Cidade'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'Cep'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'UF'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'telefone'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'celular'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'fax'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'email'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'venc_ferias'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'venc_exame'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'OLD_Id'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'Id'
+        ParamType = ptUnknown
+      end>
+  end
+  object dTP: TDataSource
+    DataSet = qTP
+    Left = 752
+    Top = 168
+  end
+  object qTP: TZQuery
+    Connection = DM.Conex
+    SQL.Strings = (
+      'select * from Tpuser'
+      'order by Descricao')
+    Params = <>
+    Left = 720
+    Top = 168
+    object qTPId: TIntegerField
+      FieldName = 'Id'
+    end
+    object qTPDescricao: TStringField
+      FieldName = 'Descricao'
+      Size = 50
+    end
+  end
+end

@@ -1,0 +1,560 @@
+inherited fCadMateriaPrima: TfCadMateriaPrima
+  Left = 225
+  Top = 183
+  Caption = 'Mat'#233'ria-Prima'
+  ClientHeight = 605
+  OldCreateOrder = True
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited Image2: TImage
+    Height = 564
+  end
+  inherited EdPesq: TEdit
+    Left = 80
+    Width = 476
+  end
+  inherited PageControl1: TPageControl
+    Height = 522
+    ActivePage = TabSheet2
+    inherited TabSheet1: TTabSheet
+      inherited DBGrid1: TDBGrid
+        Height = 494
+        Columns = <
+          item
+            Expanded = False
+            FieldName = 'Id'
+            Width = 50
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'descricao'
+            Title.Caption = 'Descri'#231#227'o'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'produzido'
+            Title.Caption = 'Produzido'
+            Visible = False
+          end
+          item
+            Expanded = False
+            FieldName = 'est_minimo'
+            Title.Caption = 'Estoque M'#237'nimo'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'est_seguranca'
+            Title.Caption = 'Estoque Seguran'#231'a'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'ft_conv_un'
+            Title.Caption = 'F. Conver UN'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'ft_conv_qtde'
+            Title.Caption = 'F. Conver Qtde'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'ft_conv_2un'
+            Title.Caption = 'F. Conver 2'#170' UN'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'DtAdm'
+            Visible = False
+          end
+          item
+            Expanded = False
+            FieldName = 'DtNasc'
+            Visible = False
+          end
+          item
+            Expanded = False
+            FieldName = 'Tel1'
+            Visible = False
+          end
+          item
+            Expanded = False
+            FieldName = 'Tel2'
+            Visible = False
+          end
+          item
+            Expanded = False
+            FieldName = 'Tel3'
+            Visible = False
+          end
+          item
+            Expanded = False
+            FieldName = 'Email'
+            Visible = False
+          end
+          item
+            Expanded = False
+            FieldName = 'CPF'
+            Visible = False
+          end
+          item
+            Expanded = False
+            FieldName = 'RG'
+            Visible = False
+          end
+          item
+            Expanded = False
+            FieldName = 'User'
+            Visible = False
+          end
+          item
+            Expanded = False
+            FieldName = 'Senha'
+            Visible = False
+          end>
+      end
+    end
+    inherited TabSheet2: TTabSheet
+      object Bevel1: TBevel
+        Left = 14
+        Top = 113
+        Width = 643
+        Height = 68
+      end
+      object Label2: TLabel
+        Left = 15
+        Top = 13
+        Width = 38
+        Height = 18
+        Caption = 'C'#243'digo'
+        FocusControl = DBEdit1
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Trebuchet MS'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = True
+      end
+      object Label3: TLabel
+        Left = 15
+        Top = 38
+        Width = 54
+        Height = 18
+        Caption = 'Descri'#231#227'o'
+        FocusControl = DBEdit2
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Trebuchet MS'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = True
+      end
+      object Label4: TLabel
+        Left = 15
+        Top = 88
+        Width = 91
+        Height = 18
+        Caption = 'Estoque M'#237'nimo'
+        FocusControl = DBEdit3
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Trebuchet MS'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = True
+      end
+      object Label5: TLabel
+        Left = 23
+        Top = 141
+        Width = 57
+        Height = 18
+        Caption = '1 Unidade'
+        FocusControl = DBEdit4
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Trebuchet MS'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = True
+      end
+      object Label6: TLabel
+        Left = 201
+        Top = 141
+        Width = 65
+        Height = 18
+        Caption = 'Quantidade'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Trebuchet MS'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = True
+      end
+      object Label8: TLabel
+        Left = 471
+        Top = 141
+        Width = 46
+        Height = 18
+        Caption = 'Unidade'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Trebuchet MS'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = True
+      end
+      object lCPFCNPJ: TLabel
+        Left = 15
+        Top = 63
+        Width = 105
+        Height = 18
+        Caption = 'Estoque Seguran'#231'a'
+        FocusControl = DBEdit14
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Trebuchet MS'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = True
+      end
+      object Label7: TLabel
+        Left = 23
+        Top = 114
+        Width = 108
+        Height = 18
+        Caption = 'Fator de Convers'#227'o'
+        FocusControl = DBEdit4
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Trebuchet MS'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = True
+      end
+      object DBEdit1: TDBEdit
+        Left = 73
+        Top = 12
+        Width = 71
+        Height = 19
+        CharCase = ecUpperCase
+        Ctl3D = False
+        DataField = 'Id'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 0
+      end
+      object DBEdit2: TDBEdit
+        Left = 73
+        Top = 37
+        Width = 585
+        Height = 19
+        CharCase = ecUpperCase
+        Ctl3D = False
+        DataField = 'descricao'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 1
+      end
+      object DBEdit3: TDBEdit
+        Left = 129
+        Top = 87
+        Width = 160
+        Height = 19
+        CharCase = ecUpperCase
+        Ctl3D = False
+        DataField = 'est_minimo'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 3
+      end
+      object DBEdit4: TDBEdit
+        Left = 268
+        Top = 140
+        Width = 170
+        Height = 19
+        CharCase = ecUpperCase
+        Ctl3D = False
+        DataField = 'ft_conv_qtde'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 5
+      end
+      object DBEdit14: TDBEdit
+        Left = 129
+        Top = 62
+        Width = 159
+        Height = 19
+        CharCase = ecUpperCase
+        Ctl3D = False
+        DataField = 'est_seguranca'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 2
+      end
+      object DBComboBox1: TDBComboBox
+        Left = 521
+        Top = 138
+        Width = 74
+        Height = 21
+        Style = csDropDownList
+        BevelKind = bkFlat
+        CharCase = ecUpperCase
+        Ctl3D = False
+        DataField = 'ft_conv_2un'
+        DataSource = D
+        ItemHeight = 13
+        ParentCtl3D = False
+        TabOrder = 6
+      end
+      object DBComboBox2: TDBComboBox
+        Left = 85
+        Top = 139
+        Width = 74
+        Height = 21
+        Style = csDropDownList
+        BevelKind = bkFlat
+        CharCase = ecUpperCase
+        Ctl3D = False
+        DataField = 'ft_conv_un'
+        DataSource = D
+        ItemHeight = 13
+        ParentCtl3D = False
+        TabOrder = 4
+      end
+    end
+  end
+  inherited ImageList1: TImageList
+    Left = 752
+    Top = 240
+  end
+  inherited D: TDataSource
+    Left = 752
+    Top = 112
+  end
+  inherited ActionList1: TActionList
+    Left = 688
+    Top = 216
+  end
+  inherited T: TZQuery
+    OnNewRecord = TNewRecord
+    SQL.Strings = (
+      'select * from produto'
+      'where tipo = '#39'M'#39' '
+      '     and  descricao like :pesq       '
+      'order by descricao')
+    Params = <
+      item
+        DataType = ftUnknown
+        Name = 'pesq'
+        ParamType = ptUnknown
+      end>
+    Left = 688
+    Top = 112
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'pesq'
+        ParamType = ptUnknown
+      end>
+    object TId: TIntegerField
+      FieldName = 'Id'
+    end
+    object Tdescricao: TStringField
+      FieldName = 'descricao'
+      Size = 50
+    end
+    object Ttipo: TStringField
+      FieldName = 'tipo'
+      Size = 1
+    end
+    object Test_seguranca: TFloatField
+      FieldName = 'est_seguranca'
+      DisplayFormat = '###,###,###,##0.00000'
+    end
+    object Test_minimo: TFloatField
+      FieldName = 'est_minimo'
+      DisplayFormat = '###,###,###,##0.00000'
+    end
+    object Tft_conv_un: TStringField
+      FieldName = 'ft_conv_un'
+      Size = 10
+    end
+    object Tft_conv_2un: TStringField
+      FieldName = 'ft_conv_2un'
+      Size = 10
+    end
+    object Tproduzido: TStringField
+      FieldName = 'produzido'
+      Size = 1
+    end
+    object Tft_conv_qtde: TFloatField
+      FieldName = 'ft_conv_qtde'
+      DisplayFormat = '###,###,###,##0.00000'
+    end
+    object Tbarras: TStringField
+      FieldName = 'barras'
+    end
+    object Treferencia: TStringField
+      FieldName = 'referencia'
+    end
+    object Tvalor: TFloatField
+      FieldName = 'valor'
+      DisplayFormat = '###,###,###,##0.0000000'
+    end
+    object Tqtdestoque: TFloatField
+      FieldName = 'qtdestoque'
+      DisplayFormat = '###,###,###,##0.00000'
+    end
+  end
+  inherited up: TZUpdateSQL
+    DeleteSQL.Strings = (
+      'DELETE FROM produto'
+      'WHERE'
+      
+        '  ((produto.Id IS NULL AND :OLD_Id IS NULL) OR (produto.Id = :OL' +
+        'D_Id))')
+    InsertSQL.Strings = (
+      'INSERT INTO produto'
+      
+        '  (produto.descricao, produto.tipo, produto.est_seguranca, produ' +
+        'to.est_minimo, '
+      
+        '   produto.ft_conv_un, produto.ft_conv_qtde, produto.ft_conv_2un' +
+        ', produto.produzido, '
+      
+        '   produto.barras, produto.referencia, produto.valor, produto.qt' +
+        'destoque)'
+      'VALUES'
+      
+        '  (:descricao, :tipo, :est_seguranca, :est_minimo, :ft_conv_un, ' +
+        ':ft_conv_qtde, '
+      
+        '   :ft_conv_2un, :produzido, :barras, :referencia, :valor, :qtde' +
+        'stoque)')
+    ModifySQL.Strings = (
+      'UPDATE produto SET'
+      '  produto.descricao = :descricao,'
+      '  produto.tipo = :tipo,'
+      '  produto.est_seguranca = :est_seguranca,'
+      '  produto.est_minimo = :est_minimo,'
+      '  produto.ft_conv_un = :ft_conv_un,'
+      '  produto.ft_conv_qtde = :ft_conv_qtde,'
+      '  produto.ft_conv_2un = :ft_conv_2un,'
+      '  produto.produzido = :produzido,'
+      '  produto.barras = :barras,'
+      '  produto.referencia = :referencia,'
+      '  produto.valor = :valor,'
+      '  produto.qtdestoque = :qtdestoque'
+      'WHERE'
+      
+        '  ((produto.Id IS NULL AND :OLD_Id IS NULL) OR (produto.Id = :OL' +
+        'D_Id))')
+    Left = 720
+    Top = 112
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'descricao'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'Tipo'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'est_seguranca'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'est_minimo'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'ft_conv_un'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'ft_conv_qtde'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'ft_conv_2un'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'produzido'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'barras'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'referencia'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'valor'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'qtdestoque'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'OLD_Id'
+        ParamType = ptUnknown
+      end>
+  end
+  object dUn: TDataSource
+    DataSet = qUn
+    Left = 752
+    Top = 168
+  end
+  object qUn: TZQuery
+    Connection = DM.Conex
+    SQL.Strings = (
+      'select * from UnidMedida'
+      'order by sigla')
+    Params = <>
+    Left = 720
+    Top = 168
+    object qUnId: TIntegerField
+      FieldName = 'Id'
+    end
+    object qUnDescricao: TStringField
+      FieldName = 'Descricao'
+      Size = 50
+    end
+    object qUnsigla: TStringField
+      FieldName = 'sigla'
+      Size = 10
+    end
+  end
+end

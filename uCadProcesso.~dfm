@@ -1,0 +1,664 @@
+inherited fCadProcesso: TfCadProcesso
+  Left = 245
+  Top = 174
+  Caption = 'Processo'
+  ClientHeight = 605
+  OldCreateOrder = True
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited Image2: TImage
+    Height = 564
+  end
+  inherited EdPesq: TEdit
+    Left = 80
+    Width = 492
+  end
+  inherited PageControl1: TPageControl
+    Height = 522
+    ActivePage = TabSheet2
+    inherited TabSheet1: TTabSheet
+      inherited DBGrid1: TDBGrid
+        Height = 494
+        Columns = <
+          item
+            Expanded = False
+            FieldName = 'Id'
+            Width = 50
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'Descricao'
+            Title.Caption = 'Descri'#231#227'o'
+            Width = 280
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'ordem'
+            Title.Caption = 'Ordem'
+            Visible = False
+          end
+          item
+            Expanded = False
+            FieldName = 'ultimo'
+            Title.Caption = #218'ltimo'
+            Visible = False
+          end
+          item
+            Expanded = False
+            FieldName = 'tempo'
+            Title.Caption = 'Tempo'
+            Visible = False
+          end
+          item
+            Expanded = False
+            FieldName = 'custo'
+            Title.Caption = 'Custo'
+            Visible = False
+          end
+          item
+            Expanded = False
+            FieldName = 'ft_conv_qtde'
+            Visible = False
+          end
+          item
+            Expanded = False
+            FieldName = 'ft_conv_2un'
+            Visible = False
+          end
+          item
+            Expanded = False
+            FieldName = 'DtAdm'
+            Visible = False
+          end
+          item
+            Expanded = False
+            FieldName = 'DtNasc'
+            Visible = False
+          end
+          item
+            Expanded = False
+            FieldName = 'Tel1'
+            Visible = False
+          end
+          item
+            Expanded = False
+            FieldName = 'Tel2'
+            Visible = False
+          end
+          item
+            Expanded = False
+            FieldName = 'Tel3'
+            Visible = False
+          end
+          item
+            Expanded = False
+            FieldName = 'Email'
+            Visible = False
+          end
+          item
+            Expanded = False
+            FieldName = 'CPF'
+            Visible = False
+          end
+          item
+            Expanded = False
+            FieldName = 'RG'
+            Visible = False
+          end
+          item
+            Expanded = False
+            FieldName = 'User'
+            Visible = False
+          end
+          item
+            Expanded = False
+            FieldName = 'Senha'
+            Visible = False
+          end>
+      end
+    end
+    inherited TabSheet2: TTabSheet
+      object Label2: TLabel
+        Left = 10
+        Top = 13
+        Width = 38
+        Height = 18
+        Caption = 'C'#243'digo'
+        FocusControl = DBEdit1
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Trebuchet MS'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = True
+      end
+      object Label3: TLabel
+        Left = 10
+        Top = 38
+        Width = 54
+        Height = 18
+        Caption = 'Descri'#231#227'o'
+        FocusControl = DBEdit2
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Trebuchet MS'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = True
+      end
+      object Bevel1: TBevel
+        Left = 8
+        Top = 72
+        Width = 699
+        Height = 409
+        Anchors = [akLeft, akTop, akBottom]
+      end
+      object Label13: TLabel
+        Left = 15
+        Top = 78
+        Width = 79
+        Height = 18
+        Caption = 'Mat'#233'ria-Prima'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Trebuchet MS'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = True
+      end
+      object Label10: TLabel
+        Left = 507
+        Top = 78
+        Width = 46
+        Height = 18
+        Caption = 'Unidade'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Trebuchet MS'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = True
+      end
+      object DBEdit1: TDBEdit
+        Left = 73
+        Top = 12
+        Width = 71
+        Height = 19
+        CharCase = ecUpperCase
+        Ctl3D = False
+        DataField = 'Id'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 0
+      end
+      object DBEdit2: TDBEdit
+        Left = 73
+        Top = 37
+        Width = 488
+        Height = 19
+        CharCase = ecUpperCase
+        Ctl3D = False
+        DataField = 'Descricao'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 1
+      end
+      object CheckDBGrid5: TCheckDBGrid
+        Left = 15
+        Top = 123
+        Width = 685
+        Height = 351
+        Anchors = [akLeft, akTop, akBottom]
+        Color = 13041663
+        Ctl3D = False
+        DataSource = dProcItem
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentCtl3D = False
+        ParentFont = False
+        ReadOnly = True
+        TabOrder = 6
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -11
+        TitleFont.Name = 'MS Sans Serif'
+        TitleFont.Style = [fsBold]
+        AllowAppend = False
+        Columns = <
+          item
+            Expanded = False
+            FieldName = 'descricao'
+            Title.Caption = 'Mat'#233'ria-Prima'
+            Width = 558
+            Visible = True
+            ValueChecked = 'T'
+            ValueUnchecked = 'F'
+          end
+          item
+            Expanded = False
+            FieldName = 'Unidade'
+            Width = 68
+            Visible = True
+            ValueChecked = 'T'
+            ValueUnchecked = 'F'
+          end>
+      end
+      object btExcluirI: TXiButton
+        Left = 668
+        Top = 89
+        Width = 32
+        Height = 30
+        ColorFace = 15987699
+        ColorGrad = 12369084
+        ColorDark = 10987431
+        ColorLight = 16250871
+        ColorBorder = 6447714
+        ColorText = clBlack
+        OverColorFace = 15790320
+        OverColorGrad = 10921638
+        OverColorDark = 10658466
+        OverColorLight = 15658734
+        OverColorBorder = 7697781
+        OverColorText = clBlack
+        DownColorFace = 13290186
+        DownColorGrad = 14342874
+        DownColorDark = 15329769
+        DownColorLight = 8158332
+        DownColorBorder = 5131854
+        DownColorText = clBlack
+        DisabledColorFace = 15658734
+        DisabledColorGrad = clWhite
+        DisabledColorDark = 13816530
+        DisabledColorLight = clWhite
+        DisabledColorBorder = clGray
+        DisabledColorText = clGray
+        ColorFocusRect = 11382189
+        ColorScheme = csNeoSilver
+        Ctl3D = True
+        Layout = blGlyphLeft
+        Glyph.Data = {
+          36030000424D3603000000000000360000002800000010000000100000000100
+          18000000000000030000C40E0000C40E00000000000000000000FFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFF6569BA717FE06B6EBEFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFDFDFEFFFFFFFFFFFFB9BADD7A83E6
+          6A80FF273CD9EBECF6FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF7677
+          C58788D9FFFFFFFFFFFFA0A1D34D54DE2536EB0B20D9E3E3F3FFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFDCDCEE0E16C0B1B2DEFFFFFFFFFFFFE9E9F41519BF
+          060EDB0412D87B7DC3FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF2C34BA1822
+          C1FFFFFFFFFFFFFFFFFFFFFFFF5A5BBA0002CF0309D8080FC1DADAECFFFFFFFF
+          FFFFFFFFFFFFFFFF7A7CC50C21DF9C9DD2FFFFFFFFFFFFFFFFFFFFFFFFFDFDFE
+          1E1FB00001D00106D52326B1FFFFFFFFFFFFFFFFFFA9AAD30C28E52733BEFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE8E9F41112B50000D10103CE5A5CB9FF
+          FFFFB1B2D90B1FD40C26DFD2D1E7FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFE2E3F21516B50000D20101C44D4EB8070EC30514E16F70BEFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF5F5FA2D2DB00001CC00
+          00CC0103D13639B3FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFE2E2F23236B70207CF0103D20001C97777C2FFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF7174CA0F1ED10717E40510DE0E
+          13BA0507C10608CC6162BEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF9B9BD2
+          4F58D23D57F71D3CFA0D26F01921BFEBEBF6C4C4E5191BBE2325D44A4ABBF9F9
+          FCFFFFFFFFFFFFFFFFFF8487D0A2ABF78D9DFF6A7FFF3A55F9313BC1EFEFF7FF
+          FFFFFFFFFFFDFDFE5B5CBF4041D1494AC4A2A2D5FFFFFFFFFFFF8788CCB6BBF5
+          A3ACFB6973E17678C8FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFC8C8E65555
+          C16061CC5A5ABDADAED9DFDFEF9192D29A9DE29596D2FFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFEDEDF77C7DC96162C58383CB}
+        Spacing = 4
+        TransparentGlyph = True
+        Gradient = True
+        HotTrack = True
+        Enabled = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Trebuchet MS'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 7
+        OnClick = btExcluirIClick
+      end
+      object edCod: TEdit
+        Left = 14
+        Top = 94
+        Width = 83
+        Height = 24
+        CharCase = ecUpperCase
+        Ctl3D = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Trebuchet MS'
+        Font.Style = []
+        ParentCtl3D = False
+        ParentFont = False
+        TabOrder = 2
+        OnExit = edCodExit
+        OnKeyPress = edCodKeyPress
+      end
+      object EdNom: TEdit
+        Left = 98
+        Top = 94
+        Width = 400
+        Height = 24
+        CharCase = ecUpperCase
+        Ctl3D = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Trebuchet MS'
+        Font.Style = []
+        ParentCtl3D = False
+        ParentFont = False
+        TabOrder = 3
+        OnChange = EdNomChange
+        OnKeyDown = EdNomKeyDown
+      end
+      object gdPesq: TDBGrid
+        Left = 478
+        Top = 182
+        Width = 484
+        Height = 144
+        Ctl3D = False
+        DataSource = DM.dPesq
+        ParentCtl3D = False
+        TabOrder = 8
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -11
+        TitleFont.Name = 'MS Sans Serif'
+        TitleFont.Style = [fsBold]
+        Visible = False
+        OnKeyPress = gdPesqKeyPress
+        Columns = <
+          item
+            Expanded = False
+            FieldName = 'id'
+            Title.Caption = 'C'#243'digo'
+            Width = 71
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'nome'
+            Title.Caption = 'Descri'#231#227'o'
+            Width = 371
+            Visible = True
+          end>
+      end
+      object cbUn: TComboBox
+        Left = 507
+        Top = 94
+        Width = 73
+        Height = 24
+        BevelKind = bkFlat
+        Style = csDropDownList
+        Ctl3D = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ItemHeight = 16
+        ParentCtl3D = False
+        ParentFont = False
+        TabOrder = 4
+      end
+      object BtAddPi: TXiButton
+        Left = 632
+        Top = 89
+        Width = 32
+        Height = 30
+        ColorFace = 15987699
+        ColorGrad = 12369084
+        ColorDark = 10987431
+        ColorLight = 16250871
+        ColorBorder = 6447714
+        ColorText = clBlack
+        OverColorFace = 15790320
+        OverColorGrad = 10921638
+        OverColorDark = 10658466
+        OverColorLight = 15658734
+        OverColorBorder = 7697781
+        OverColorText = clBlack
+        DownColorFace = 13290186
+        DownColorGrad = 14342874
+        DownColorDark = 15329769
+        DownColorLight = 8158332
+        DownColorBorder = 5131854
+        DownColorText = clBlack
+        DisabledColorFace = 15658734
+        DisabledColorGrad = clWhite
+        DisabledColorDark = 13816530
+        DisabledColorLight = clWhite
+        DisabledColorBorder = clGray
+        DisabledColorText = clGray
+        ColorFocusRect = 11382189
+        ColorScheme = csNeoSilver
+        Ctl3D = True
+        Layout = blGlyphLeft
+        Glyph.Data = {
+          36030000424D3603000000000000360000002800000010000000100000000100
+          18000000000000030000C40E0000C40E00000000000000000000FFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0E882E0E882E0E
+          882E0E882E0E882EFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFF0E882E07A72F099E2E0B932E0E882EFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0E882E05AF2F08
+          BA29099E2E0E882EFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFF0E882E04B62F08B82807A72F0E882EFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0E882E03BB2F09
+          B52605AF2F0E882EFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0E882E0E882E
+          0E882E0E882E0E882E188D3616C44009B22504B62F0B922E0C902E0C8E2E0D8C
+          2E0D892E0E882EFFFFFF2A964673E28D68E0845DDD7B53DA7349D66A41CB5D1D
+          B63506B72B04B62F05AF2F07A72F099E2E0B932E0E882EFFFFFF2D97497EE597
+          79D1856ECE7C64CC7459CA6B51C26046C1581EB63507B52807B62807B62A07B7
+          2B099E2E0E882EFFFFFF30984B8AE7A07FE59775E38F6AE0865FDD7D58D27052
+          C36143CB5F17C54103BB2F04B62F05AF2F07A72F0E882EFFFFFF0E882E0E882E
+          0E882E0E882E0E882E0E882E61DE7E5DC56A4CD76D0E882E0E882E0E882E0E88
+          2E0E882E0E882EFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0E882E6DE18869
+          C77458DB770E882EFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFF0E882E78E49275CA7E63DE800E882EFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0E882E83E69B7F
+          D38A6FE18A0E882EFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFF0E882E8FE8A485E69C7BE4930E882EFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0E882E0E882E0E
+          882E0E882E0E882EFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+        Spacing = 4
+        TransparentGlyph = True
+        Gradient = True
+        HotTrack = True
+        Enabled = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Trebuchet MS'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 5
+        OnClick = BtAddPiClick
+      end
+    end
+  end
+  inherited ImageList1: TImageList
+    Left = 728
+    Top = 11
+  end
+  inherited D: TDataSource
+    Left = 752
+    Top = 112
+  end
+  inherited ActionList1: TActionList
+    Left = 696
+    Top = 11
+  end
+  inherited T: TZQuery
+    AfterScroll = TAfterScroll
+    OnNewRecord = TNewRecord
+    SQL.Strings = (
+      'select * from processo'
+      'where  descricao like :pesq       '
+      'order by descricao')
+    Params = <
+      item
+        DataType = ftUnknown
+        Name = 'pesq'
+        ParamType = ptUnknown
+      end>
+    Left = 688
+    Top = 112
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'pesq'
+        ParamType = ptUnknown
+      end>
+    object TId: TIntegerField
+      FieldName = 'Id'
+    end
+    object TDescricao: TStringField
+      FieldName = 'Descricao'
+      Size = 100
+    end
+  end
+  inherited up: TZUpdateSQL
+    DeleteSQL.Strings = (
+      'DELETE FROM processo'
+      'WHERE'
+      '  ((processo.Id IS NULL AND :OLD_Id IS NULL) OR (processo.Id = '
+      ':OLD_Id))')
+    InsertSQL.Strings = (
+      'INSERT INTO processo'
+      '  (processo.Id, processo.Descricao)'
+      'VALUES'
+      '  (:Id, :Descricao)')
+    ModifySQL.Strings = (
+      'UPDATE processo SET'
+      '  processo.Descricao = :Descricao'
+      'WHERE'
+      '  ((processo.Id IS NULL AND :OLD_Id IS NULL) OR (processo.Id = '
+      ':OLD_Id))')
+    Left = 720
+    Top = 112
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'descricao'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'OLD_Id'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'Id'
+        ParamType = ptUnknown
+      end>
+  end
+  object qProcItem: TZQuery
+    Connection = DM.Conex
+    UpdateObject = upProcItem
+    SQL.Strings = (
+      'select processo_I.*, produto.descricao'
+      ' from processo_I'
+      
+        'left join produto on processo_I.idproduto = produto.id and produ' +
+        'to.tipo='#39'M'#39
+      'where processo_I.idProcesso = :IDp')
+    Params = <
+      item
+        DataType = ftUnknown
+        Name = 'IDp'
+        ParamType = ptUnknown
+      end>
+    Left = 586
+    Top = 88
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'IDp'
+        ParamType = ptUnknown
+      end>
+    object qProcItemId: TIntegerField
+      FieldName = 'Id'
+    end
+    object qProcItemIdProduto: TIntegerField
+      FieldName = 'IdProduto'
+    end
+    object qProcItemIdProcesso: TIntegerField
+      FieldName = 'IdProcesso'
+    end
+    object qProcItemdescricao: TStringField
+      FieldName = 'descricao'
+      Size = 100
+    end
+    object qProcItemUnidade: TStringField
+      FieldName = 'Unidade'
+      Size = 10
+    end
+  end
+  object upProcItem: TZUpdateSQL
+    DeleteSQL.Strings = (
+      'DELETE FROM processo_I'
+      'WHERE'
+      
+        '  ((processo_I.Id IS NULL AND :OLD_Id IS NULL) OR (processo_I.Id' +
+        ' = :OLD_Id))')
+    InsertSQL.Strings = (
+      'INSERT INTO processo_I'
+      
+        '  (processo_I.IdProcesso, processo_I.IdProduto, processo_I.Unida' +
+        'de)'
+      'VALUES'
+      '  (:IdProcesso, :IdProduto, :Unidade)')
+    ModifySQL.Strings = (
+      'UPDATE processo_I SET'
+      '  processo_I.IdProcesso = :IdProcesso,'
+      '  processo_I.IdProduto = :IdProduto,'
+      '  processo_I.Unidade = :Unidade'
+      'WHERE'
+      
+        '  ((processo_I.Id IS NULL AND :OLD_Id IS NULL) OR (processo_I.Id' +
+        ' = '
+      ':OLD_Id))')
+    UseSequenceFieldForRefreshSQL = False
+    Left = 618
+    Top = 88
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'IdProcesso'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'IdProduto'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'Unidade'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'OLD_Id'
+        ParamType = ptUnknown
+      end>
+  end
+  object dProcItem: TDataSource
+    DataSet = qProcItem
+    Left = 650
+    Top = 88
+  end
+end

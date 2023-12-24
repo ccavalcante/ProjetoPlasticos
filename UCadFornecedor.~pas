@@ -1,0 +1,184 @@
+unit UCadFornecedor;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, uCadPadrao, ZSqlUpdate, DB, ZAbstractRODataset,
+  ZAbstractDataset, ZDataset, ActnList, ImgList, Grids, DBGrids, ComCtrls,
+  StdCtrls, ToolWin, jpeg, ExtCtrls, DBCtrls, Mask;
+
+type
+  TfCadFornecedor = class(TfCadPadrao)
+    TID: TIntegerField;
+    TNOME: TStringField;
+    TENDERECO: TStringField;
+    TBAIRRO: TStringField;
+    TCIDADE: TStringField;
+    TCEP: TStringField;
+    TUF: TStringField;
+    TTEL1: TStringField;
+    TTEL2: TStringField;
+    TFAX: TStringField;
+    TCONTATO: TStringField;
+    TEMAIL: TStringField;
+    TIE: TStringField;
+    TCNPJ: TStringField;
+    TCONTA: TStringField;
+    TAGENCIA: TStringField;
+    TBANCO: TStringField;
+    TTIPOPAGTO: TIntegerField;
+    TOBS: TStringField;
+    TEX: TIntegerField;
+    TDESPESA: TStringField;
+    TSITE: TStringField;
+    TTIPOPESSOA: TStringField;
+    Label2: TLabel;
+    DBEdit1: TDBEdit;
+    Label3: TLabel;
+    DBEdit2: TDBEdit;
+    Label4: TLabel;
+    DBEdit3: TDBEdit;
+    Label5: TLabel;
+    DBEdit4: TDBEdit;
+    Label6: TLabel;
+    DBEdit5: TDBEdit;
+    Label7: TLabel;
+    DBEdit6: TDBEdit;
+    Label8: TLabel;
+    DBEdit7: TDBEdit;
+    Label9: TLabel;
+    DBEdit8: TDBEdit;
+    DBEdit9: TDBEdit;
+    DBEdit10: TDBEdit;
+    Label12: TLabel;
+    DBEdit11: TDBEdit;
+    Label13: TLabel;
+    DBEdit12: TDBEdit;
+    Label14: TLabel;
+    DBEdit13: TDBEdit;
+    Label15: TLabel;
+    DBEdit14: TDBEdit;
+    DBCheckBox1: TDBCheckBox;
+    rgTipo: TDBRadioGroup;
+    Label16: TLabel;
+    DBEdit15: TDBEdit;
+    Label17: TLabel;
+    Label18: TLabel;
+    DBEdit17: TDBEdit;
+    Label19: TLabel;
+    DBEdit18: TDBEdit;
+    Label20: TLabel;
+    DBEdit19: TDBEdit;
+    Label21: TLabel;
+    DBEdit20: TDBEdit;
+    DBMemo1: TDBMemo;
+    Label10: TLabel;
+    Label11: TLabel;
+    Tfantasia: TStringField;
+    Label22: TLabel;
+    DBEdit16: TDBEdit;
+    procedure TNewRecord(DataSet: TDataSet);
+    procedure acInserirExecute(Sender: TObject);
+    procedure acEditarExecute(Sender: TObject);
+    procedure TAfterScroll(DataSet: TDataSet);
+    procedure rgTipoClick(Sender: TObject);
+    procedure DBEdit14Exit(Sender: TObject);
+    procedure acSalvarExecute(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  fCadFornecedor: TfCadFornecedor;
+
+implementation
+
+uses uDM, uFuncao;
+
+{$R *.dfm}
+
+procedure TfCadFornecedor.TNewRecord(DataSet: TDataSet);
+begin
+  inherited;
+  TID.Value        := InsereCodigo('fornecedor','ID' );
+  TDespesa.Text    := 'N';
+  TTipoPessoa.Text := 'J'; 
+  TEx.Value        := 0;
+end;
+
+procedure TfCadFornecedor.acInserirExecute(Sender: TObject);
+begin
+  inherited;
+  DBEdit1.ReadOnly := True;
+  DBEdit1.Color := $00CEFDFC;
+  DBEdit16.SetFocus;
+end;
+
+procedure TfCadFornecedor.acEditarExecute(Sender: TObject);
+begin
+  inherited;
+  DBEdit1.ReadOnly := True;
+  DBEdit1.Color := $00CEFDFC;
+  DBEdit16.SetFocus;
+end;
+
+procedure TfCadFornecedor.TAfterScroll(DataSet: TDataSet);
+begin
+   rgTipoClick(Application);
+end;
+
+procedure TfCadFornecedor.rgTipoClick(Sender: TObject);
+begin
+ if rgtipo.ItemIndex  = 1 then
+    begin
+      Label22.caption := 'Apelido';
+      Label3.caption  := 'Nome';
+      Label15.Caption := 'CPF';
+      Label14.Caption := 'RG';
+      TCNPJ.EditMask  := '###.###.###-##;0;_';
+      DBedit14.MaxLength := 11;
+    end;
+ if rgtipo.ItemIndex  = 0 then
+    begin
+      Label22.caption := 'Fantasia';
+      Label3.caption  := 'Razão Social';
+      Label15.Caption := 'CNPJ';
+      Label14.Caption := 'IE';
+      TCNPJ.EditMask  := '##.###.###/####-##;0;_';
+      DBedit14.MaxLength := 14;
+    end;
+end;
+
+procedure TfCadFornecedor.DBEdit14Exit(Sender: TObject);
+begin
+  if TCNPJ.Text <> '' then
+     begin
+       if rgTipo.ItemIndex = 0 then
+          if not CNPJ(TCNPJ.Text) then
+             begin
+               Application.MessageBox('CNPJ Inválido!', 'Atenção');
+               DBEdit14.SetFocus;
+             end;
+       if rgTipo.ItemIndex = 1 then
+          if not CPF(TCNPJ.Text) then
+             begin
+               Application.MessageBox('CPF Inválido!', 'Atenção');
+               DBEdit14.SetFocus;
+             end;
+     end;
+
+end;
+
+procedure TfCadFornecedor.acSalvarExecute(Sender: TObject);
+begin
+  if Tnome.Text = ''  then
+     Tnome.text := Tfantasia.Text;
+
+  inherited;
+
+end;
+
+end.

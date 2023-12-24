@@ -1,0 +1,916 @@
+inherited fCadFornecedor: TfCadFornecedor
+  Left = 219
+  Top = 196
+  Caption = 'Fornecedores'
+  ClientHeight = 633
+  ClientWidth = 990
+  OldCreateOrder = True
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited Image2: TImage
+    Width = 990
+    Height = 592
+  end
+  inherited ToolBar1: TToolBar
+    Width = 990
+  end
+  inherited EdPesq: TEdit
+    Width = 875
+  end
+  inherited PageControl1: TPageControl
+    Width = 975
+    Height = 550
+    ActivePage = TabSheet2
+    inherited TabSheet1: TTabSheet
+      inherited DBGrid1: TDBGrid
+        Width = 967
+        Height = 522
+        Columns = <
+          item
+            Expanded = False
+            FieldName = 'ID'
+            Title.Caption = 'Codigo'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'fantasia'
+            Title.Caption = 'Fantasia'
+            Width = 208
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'NOME'
+            Title.Caption = 'Nome'
+            Width = 363
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'ENDERECO'
+            Title.Caption = 'Endere'#231'o'
+            Width = 323
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'BAIRRO'
+            Title.Caption = 'Bairro'
+            Width = 146
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'CIDADE'
+            Title.Caption = 'Cidade'
+            Width = 253
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'UF'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'CEP'
+            Title.Caption = 'Cep'
+            Width = 86
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'TEL1'
+            Title.Caption = 'Telefone'
+            Width = 105
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'TEL2'
+            Title.Caption = 'Celular'
+            Width = 109
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'FAX'
+            Title.Caption = 'Fax'
+            Width = 103
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'CONTATO'
+            Title.Caption = 'Contato'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'EMAIL'
+            Title.Caption = 'Email'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'CNPJ'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'IE'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'SITE'
+            Width = 395
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'TIPOPESSOA'
+            Title.Caption = 'Tipo'
+            Width = 40
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'DESPESA'
+            Title.Caption = 'Despesa'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'OBS'
+            Visible = False
+          end
+          item
+            Expanded = False
+            FieldName = 'CONTA'
+            Visible = False
+          end
+          item
+            Expanded = False
+            FieldName = 'AGENCIA'
+            Visible = False
+          end
+          item
+            Expanded = False
+            FieldName = 'BANCO'
+            Visible = False
+          end
+          item
+            Expanded = False
+            FieldName = 'EX'
+            Visible = False
+          end>
+      end
+    end
+    inherited TabSheet2: TTabSheet
+      object Label2: TLabel
+        Left = 24
+        Top = 24
+        Width = 40
+        Height = 13
+        Caption = 'Codigo'
+        FocusControl = DBEdit1
+      end
+      object Label3: TLabel
+        Left = 24
+        Top = 105
+        Width = 76
+        Height = 13
+        Caption = 'Raz'#227'o Social'
+        FocusControl = DBEdit2
+      end
+      object Label4: TLabel
+        Left = 24
+        Top = 145
+        Width = 55
+        Height = 13
+        Caption = 'Endere'#231'o'
+        FocusControl = DBEdit3
+      end
+      object Label5: TLabel
+        Left = 470
+        Top = 145
+        Width = 34
+        Height = 13
+        Caption = 'Bairro'
+        FocusControl = DBEdit4
+      end
+      object Label6: TLabel
+        Left = 24
+        Top = 185
+        Width = 40
+        Height = 13
+        Caption = 'Cidade'
+        FocusControl = DBEdit5
+      end
+      object Label7: TLabel
+        Left = 594
+        Top = 185
+        Width = 25
+        Height = 13
+        Caption = 'CEP'
+        FocusControl = DBEdit6
+      end
+      object Label8: TLabel
+        Left = 536
+        Top = 185
+        Width = 17
+        Height = 13
+        Caption = 'UF'
+        FocusControl = DBEdit7
+      end
+      object Label9: TLabel
+        Left = 336
+        Top = 225
+        Width = 51
+        Height = 13
+        Caption = 'Telefone'
+        FocusControl = DBEdit8
+      end
+      object Label12: TLabel
+        Left = 24
+        Top = 265
+        Width = 45
+        Height = 13
+        Caption = 'Contato'
+        FocusControl = DBEdit11
+      end
+      object Label13: TLabel
+        Left = 408
+        Top = 264
+        Width = 31
+        Height = 13
+        Caption = 'Email'
+        FocusControl = DBEdit12
+      end
+      object Label14: TLabel
+        Left = 181
+        Top = 225
+        Width = 13
+        Height = 13
+        Caption = 'IE'
+        FocusControl = DBEdit13
+      end
+      object Label15: TLabel
+        Left = 24
+        Top = 225
+        Width = 32
+        Height = 13
+        Caption = 'CNPJ'
+        FocusControl = DBEdit14
+      end
+      object Label16: TLabel
+        Left = 24
+        Top = 306
+        Width = 23
+        Height = 13
+        Caption = 'Site'
+        FocusControl = DBEdit15
+      end
+      object Label17: TLabel
+        Left = 24
+        Top = 390
+        Width = 27
+        Height = 13
+        Caption = 'Obs.'
+      end
+      object Label18: TLabel
+        Left = 77
+        Top = 348
+        Width = 47
+        Height = 13
+        Caption = 'Agencia'
+        FocusControl = DBEdit17
+      end
+      object Label19: TLabel
+        Left = 219
+        Top = 348
+        Width = 34
+        Height = 13
+        Caption = 'Conta'
+        FocusControl = DBEdit18
+      end
+      object Label20: TLabel
+        Left = 24
+        Top = 348
+        Width = 37
+        Height = 13
+        Caption = 'Banco'
+        FocusControl = DBEdit19
+      end
+      object Label21: TLabel
+        Left = 452
+        Top = 347
+        Width = 93
+        Height = 13
+        Caption = 'Tipo Pagamento'
+        FocusControl = DBEdit20
+      end
+      object Label10: TLabel
+        Left = 461
+        Top = 226
+        Width = 40
+        Height = 13
+        Caption = 'Celular'
+        FocusControl = DBEdit8
+      end
+      object Label11: TLabel
+        Left = 585
+        Top = 226
+        Width = 64
+        Height = 13
+        Caption = 'Fax/Outros'
+        FocusControl = DBEdit8
+      end
+      object Label22: TLabel
+        Left = 24
+        Top = 66
+        Width = 49
+        Height = 13
+        Caption = 'Fantasia'
+        FocusControl = DBEdit16
+      end
+      object DBEdit1: TDBEdit
+        Left = 24
+        Top = 40
+        Width = 134
+        Height = 19
+        Ctl3D = False
+        DataField = 'ID'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 0
+      end
+      object DBEdit2: TDBEdit
+        Left = 24
+        Top = 121
+        Width = 680
+        Height = 19
+        CharCase = ecUpperCase
+        Ctl3D = False
+        DataField = 'NOME'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 4
+      end
+      object DBEdit3: TDBEdit
+        Left = 24
+        Top = 161
+        Width = 417
+        Height = 19
+        CharCase = ecUpperCase
+        Ctl3D = False
+        DataField = 'ENDERECO'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 5
+      end
+      object DBEdit4: TDBEdit
+        Left = 470
+        Top = 161
+        Width = 233
+        Height = 19
+        CharCase = ecUpperCase
+        Ctl3D = False
+        DataField = 'BAIRRO'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 6
+      end
+      object DBEdit5: TDBEdit
+        Left = 24
+        Top = 201
+        Width = 505
+        Height = 19
+        CharCase = ecLowerCase
+        Ctl3D = False
+        DataField = 'CIDADE'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 7
+      end
+      object DBEdit6: TDBEdit
+        Left = 594
+        Top = 201
+        Width = 109
+        Height = 19
+        Ctl3D = False
+        DataField = 'CEP'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 9
+      end
+      object DBEdit7: TDBEdit
+        Left = 536
+        Top = 201
+        Width = 30
+        Height = 19
+        CharCase = ecUpperCase
+        Ctl3D = False
+        DataField = 'UF'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 8
+      end
+      object DBEdit8: TDBEdit
+        Left = 336
+        Top = 241
+        Width = 120
+        Height = 19
+        Ctl3D = False
+        DataField = 'TEL1'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 12
+      end
+      object DBEdit9: TDBEdit
+        Left = 460
+        Top = 241
+        Width = 120
+        Height = 19
+        Ctl3D = False
+        DataField = 'TEL2'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 13
+      end
+      object DBEdit10: TDBEdit
+        Left = 584
+        Top = 241
+        Width = 120
+        Height = 19
+        Ctl3D = False
+        DataField = 'FAX'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 14
+      end
+      object DBEdit11: TDBEdit
+        Left = 24
+        Top = 281
+        Width = 377
+        Height = 19
+        CharCase = ecUpperCase
+        Ctl3D = False
+        DataField = 'CONTATO'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 15
+      end
+      object DBEdit12: TDBEdit
+        Left = 408
+        Top = 280
+        Width = 297
+        Height = 19
+        Ctl3D = False
+        DataField = 'EMAIL'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 16
+      end
+      object DBEdit13: TDBEdit
+        Left = 181
+        Top = 241
+        Width = 150
+        Height = 19
+        Ctl3D = False
+        DataField = 'IE'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 11
+      end
+      object DBEdit14: TDBEdit
+        Left = 24
+        Top = 241
+        Width = 150
+        Height = 19
+        Ctl3D = False
+        DataField = 'CNPJ'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 10
+        OnExit = DBEdit14Exit
+      end
+      object DBCheckBox1: TDBCheckBox
+        Left = 181
+        Top = 40
+        Width = 75
+        Height = 17
+        Caption = 'Despesa'
+        DataField = 'DESPESA'
+        DataSource = D
+        TabOrder = 1
+        ValueChecked = 'S'
+        ValueUnchecked = 'N'
+      end
+      object rgTipo: TDBRadioGroup
+        Left = 278
+        Top = 18
+        Width = 227
+        Height = 41
+        Caption = 'Tipo Pessoa'
+        Columns = 2
+        DataField = 'TIPOPESSOA'
+        DataSource = D
+        Items.Strings = (
+          'Juridica'
+          'Fisica')
+        TabOrder = 2
+        Values.Strings = (
+          'J'
+          'F')
+        OnClick = rgTipoClick
+      end
+      object DBEdit15: TDBEdit
+        Left = 24
+        Top = 322
+        Width = 681
+        Height = 19
+        Ctl3D = False
+        DataField = 'SITE'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 17
+      end
+      object DBEdit17: TDBEdit
+        Left = 77
+        Top = 364
+        Width = 134
+        Height = 19
+        Ctl3D = False
+        DataField = 'AGENCIA'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 19
+      end
+      object DBEdit18: TDBEdit
+        Left = 219
+        Top = 364
+        Width = 199
+        Height = 19
+        Ctl3D = False
+        DataField = 'CONTA'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 20
+      end
+      object DBEdit19: TDBEdit
+        Left = 24
+        Top = 364
+        Width = 43
+        Height = 19
+        Ctl3D = False
+        DataField = 'BANCO'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 18
+      end
+      object DBEdit20: TDBEdit
+        Left = 452
+        Top = 363
+        Width = 251
+        Height = 19
+        Ctl3D = False
+        DataField = 'TIPOPAGTO'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 21
+      end
+      object DBMemo1: TDBMemo
+        Left = 24
+        Top = 406
+        Width = 681
+        Height = 89
+        Ctl3D = False
+        DataField = 'OBS'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 22
+      end
+      object DBEdit16: TDBEdit
+        Left = 24
+        Top = 82
+        Width = 680
+        Height = 19
+        CharCase = ecUpperCase
+        Ctl3D = False
+        DataField = 'fantasia'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 3
+      end
+    end
+  end
+  inherited D: TDataSource
+    Left = 624
+  end
+  inherited T: TZQuery
+    AfterScroll = TAfterScroll
+    OnNewRecord = TNewRecord
+    SQL.Strings = (
+      'select * from Fornecedor'
+      'where (nome like :pesq  or fantasia like :pesq )'
+      ''
+      'order by nome')
+    Params = <
+      item
+        DataType = ftUnknown
+        Name = 'pesq'
+        ParamType = ptUnknown
+      end>
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'pesq'
+        ParamType = ptUnknown
+      end>
+    object TID: TIntegerField
+      FieldName = 'ID'
+    end
+    object Tfantasia: TStringField
+      FieldName = 'fantasia'
+      Size = 150
+    end
+    object TNOME: TStringField
+      FieldName = 'NOME'
+      Size = 80
+    end
+    object TENDERECO: TStringField
+      FieldName = 'ENDERECO'
+      Size = 80
+    end
+    object TBAIRRO: TStringField
+      FieldName = 'BAIRRO'
+      Size = 30
+    end
+    object TCIDADE: TStringField
+      FieldName = 'CIDADE'
+      Size = 30
+    end
+    object TCEP: TStringField
+      DisplayWidth = 8
+      FieldName = 'CEP'
+      EditMask = '00000\-999;0;_'
+      Size = 8
+    end
+    object TUF: TStringField
+      FieldName = 'UF'
+      Size = 2
+    end
+    object TTEL1: TStringField
+      FieldName = 'TEL1'
+      EditMask = '(99) 9999-99999;0;_'
+    end
+    object TTEL2: TStringField
+      FieldName = 'TEL2'
+      EditMask = '(99) 99999-9999;0;_'
+    end
+    object TFAX: TStringField
+      FieldName = 'FAX'
+    end
+    object TCONTATO: TStringField
+      FieldName = 'CONTATO'
+      Size = 50
+    end
+    object TEMAIL: TStringField
+      FieldName = 'EMAIL'
+      Size = 50
+    end
+    object TIE: TStringField
+      FieldName = 'IE'
+    end
+    object TCNPJ: TStringField
+      FieldName = 'CNPJ'
+    end
+    object TCONTA: TStringField
+      FieldName = 'CONTA'
+      Size = 15
+    end
+    object TAGENCIA: TStringField
+      FieldName = 'AGENCIA'
+      Size = 10
+    end
+    object TBANCO: TStringField
+      FieldName = 'BANCO'
+      Size = 3
+    end
+    object TTIPOPAGTO: TIntegerField
+      FieldName = 'TIPOPAGTO'
+    end
+    object TOBS: TStringField
+      FieldName = 'OBS'
+      Size = 255
+    end
+    object TEX: TIntegerField
+      FieldName = 'EX'
+    end
+    object TDESPESA: TStringField
+      FieldName = 'DESPESA'
+      Required = True
+      Size = 1
+    end
+    object TSITE: TStringField
+      FieldName = 'SITE'
+      Size = 100
+    end
+    object TTIPOPESSOA: TStringField
+      FieldName = 'TIPOPESSOA'
+      Size = 1
+    end
+  end
+  inherited up: TZUpdateSQL
+    DeleteSQL.Strings = (
+      'DELETE FROM Fornecedor'
+      'WHERE'
+      
+        '  ((Fornecedor.ID IS NULL AND :OLD_ID IS NULL) OR (Fornecedor.ID' +
+        ' = '
+      ':OLD_ID))')
+    InsertSQL.Strings = (
+      'INSERT INTO Fornecedor'
+      '  (Fornecedor.ID, Fornecedor.NOME, Fornecedor.ENDERECO, '
+      'Fornecedor.BAIRRO, '
+      
+        '   Fornecedor.CIDADE, Fornecedor.CEP, Fornecedor.UF, Fornecedor.' +
+        'tel1, '
+      'Fornecedor.tel2, '
+      '   Fornecedor.fax, Fornecedor.CONTATO, Fornecedor.EMAIL, '
+      'Fornecedor.IE, '
+      '   Fornecedor.CNPJ, Fornecedor.CONTA, Fornecedor.AGENCIA, '
+      'Fornecedor.BANCO, '
+      '   Fornecedor.TIPOPAGTO, Fornecedor.OBS, Fornecedor.EX, '
+      'Fornecedor.DESPESA, '
+      '   Fornecedor.SITE, Fornecedor.TIPOPESSOA, Fornecedor.fantasia)'
+      'VALUES'
+      
+        '  (:ID, :NOME, :ENDERECO, :BAIRRO, :CIDADE, :CEP, :UF, :tel1, :t' +
+        'el2, '
+      ':fax, '
+      '   :CONTATO, :EMAIL, :IE, :CNPJ, :CONTA, :AGENCIA, :BANCO, '
+      ':TIPOPAGTO, '
+      '   :OBS, :EX, :DESPESA, :SITE, :TIPOPESSOA, :fantasia)')
+    ModifySQL.Strings = (
+      'UPDATE Fornecedor SET'
+      '  Fornecedor.ID = :ID,'
+      '  Fornecedor.NOME = :NOME,'
+      '  Fornecedor.ENDERECO = :ENDERECO,'
+      '  Fornecedor.BAIRRO = :BAIRRO,'
+      '  Fornecedor.CIDADE = :CIDADE,'
+      '  Fornecedor.CEP = :CEP,'
+      '  Fornecedor.UF = :UF,'
+      '  Fornecedor.tel1 = :tel1,'
+      '  Fornecedor.tel2 = :tel2,'
+      '  Fornecedor.fax = :fax,'
+      '  Fornecedor.CONTATO = :CONTATO,'
+      '  Fornecedor.EMAIL = :EMAIL,'
+      '  Fornecedor.IE = :IE,'
+      '  Fornecedor.CNPJ = :CNPJ,'
+      '  Fornecedor.CONTA = :CONTA,'
+      '  Fornecedor.AGENCIA = :AGENCIA,'
+      '  Fornecedor.BANCO = :BANCO,'
+      '  Fornecedor.TIPOPAGTO = :TIPOPAGTO,'
+      '  Fornecedor.OBS = :OBS,'
+      '  Fornecedor.EX = :EX,'
+      '  Fornecedor.DESPESA = :DESPESA,'
+      '  Fornecedor.SITE = :SITE,'
+      '  Fornecedor.TIPOPESSOA = :TIPOPESSOA,'
+      '  Fornecedor.fantasia = :fantasia'
+      'WHERE'
+      
+        '  ((Fornecedor.ID IS NULL AND :OLD_ID IS NULL) OR (Fornecedor.ID' +
+        ' = '
+      ':OLD_ID))')
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'ID'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'NOME'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'ENDERECO'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'BAIRRO'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'CIDADE'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'CEP'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'UF'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'TEL1'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'TEL2'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'FAX'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'CONTATO'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'EMAIL'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'IE'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'CNPJ'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'CONTA'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'AGENCIA'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'BANCO'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'TIPOPAGTO'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'OBS'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'EX'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'DESPESA'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'SITE'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'TIPOPESSOA'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'fantasia'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'OLD_ID'
+        ParamType = ptUnknown
+      end>
+  end
+end

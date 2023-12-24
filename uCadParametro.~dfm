@@ -1,0 +1,598 @@
+inherited fCadParametro: TfCadParametro
+  Left = 346
+  Top = 158
+  Caption = 'Par'#226'metros'
+  ClientHeight = 671
+  ClientWidth = 1034
+  OldCreateOrder = True
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited Image2: TImage
+    Width = 1034
+    Height = 630
+  end
+  inherited ToolBar1: TToolBar
+    Width = 1034
+  end
+  inherited EdPesq: TEdit
+    Width = 919
+  end
+  inherited PageControl1: TPageControl
+    Width = 1019
+    Height = 583
+    ActivePage = TabSheet2
+    inherited TabSheet1: TTabSheet
+      inherited DBGrid1: TDBGrid
+        Width = 1011
+        Height = 555
+        Columns = <
+          item
+            Expanded = False
+            FieldName = 'id'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'RAZAO'
+            Title.Caption = 'Raz'#227'o'
+            Width = 200
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'fantasia'
+            Title.Caption = 'Fantasia'
+            Width = 200
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'ENDERECO'
+            Title.Caption = 'Endere'#231'o'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'num'
+            Title.Caption = 'n'#186
+            Width = 60
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'BAIRRO'
+            Title.Caption = 'Bairro'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'CEP'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'idCidade'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'UF'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'ex'
+            Visible = False
+          end
+          item
+            Expanded = False
+            FieldName = 'IE'
+            Visible = True
+          end>
+      end
+    end
+    inherited TabSheet2: TTabSheet
+      object Label2: TLabel
+        Left = 8
+        Top = 8
+        Width = 76
+        Height = 13
+        Caption = 'Raz'#227'o Social'
+        FocusControl = DBEdit1
+      end
+      object Label3: TLabel
+        Left = 8
+        Top = 48
+        Width = 85
+        Height = 13
+        Caption = 'Nome Fantasia'
+        FocusControl = DBEdit2
+      end
+      object Label4: TLabel
+        Left = 8
+        Top = 88
+        Width = 55
+        Height = 13
+        Caption = 'Endere'#231'o'
+        FocusControl = DBEdit3
+      end
+      object Label5: TLabel
+        Left = 392
+        Top = 88
+        Width = 15
+        Height = 13
+        Caption = 'N'#186
+        FocusControl = DBEdit4
+      end
+      object Label6: TLabel
+        Left = 456
+        Top = 88
+        Width = 34
+        Height = 13
+        Caption = 'Bairro'
+        FocusControl = DBEdit5
+      end
+      object Label7: TLabel
+        Left = 632
+        Top = 88
+        Width = 25
+        Height = 13
+        Caption = 'CEP'
+        FocusControl = DBEdit6
+      end
+      object Label8: TLabel
+        Left = 86
+        Top = 213
+        Width = 40
+        Height = 13
+        Caption = 'Cidade'
+      end
+      object Label9: TLabel
+        Left = 12
+        Top = 213
+        Width = 17
+        Height = 13
+        Caption = 'UF'
+      end
+      object Label44: TLabel
+        Left = 8
+        Top = 128
+        Width = 32
+        Height = 13
+        Caption = 'CNPJ'
+        FocusControl = DBEdit14
+      end
+      object Label45: TLabel
+        Left = 232
+        Top = 128
+        Width = 13
+        Height = 13
+        Caption = 'IE'
+        FocusControl = DBEdit43
+      end
+      object Label46: TLabel
+        Left = 8
+        Top = 168
+        Width = 51
+        Height = 13
+        Caption = 'Telefone'
+        FocusControl = DBEdit44
+      end
+      object DBEdit1: TDBEdit
+        Left = 8
+        Top = 24
+        Width = 711
+        Height = 19
+        CharCase = ecUpperCase
+        Ctl3D = False
+        DataField = 'Razao'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 0
+      end
+      object DBEdit2: TDBEdit
+        Left = 8
+        Top = 64
+        Width = 711
+        Height = 19
+        CharCase = ecUpperCase
+        Ctl3D = False
+        DataField = 'Fantasia'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 1
+      end
+      object DBEdit3: TDBEdit
+        Left = 8
+        Top = 104
+        Width = 377
+        Height = 19
+        CharCase = ecUpperCase
+        Ctl3D = False
+        DataField = 'Endereco'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 2
+      end
+      object DBEdit4: TDBEdit
+        Left = 392
+        Top = 104
+        Width = 55
+        Height = 19
+        Ctl3D = False
+        DataField = 'num'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 3
+      end
+      object DBEdit5: TDBEdit
+        Left = 456
+        Top = 104
+        Width = 169
+        Height = 19
+        CharCase = ecUpperCase
+        Ctl3D = False
+        DataField = 'Bairro'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 4
+      end
+      object DBEdit6: TDBEdit
+        Left = 630
+        Top = 104
+        Width = 89
+        Height = 19
+        Ctl3D = False
+        DataField = 'CEP'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 5
+      end
+      object DBEdit14: TDBEdit
+        Left = 8
+        Top = 144
+        Width = 217
+        Height = 19
+        Ctl3D = False
+        DataField = 'cnpj'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 6
+      end
+      object DBEdit43: TDBEdit
+        Left = 232
+        Top = 144
+        Width = 217
+        Height = 19
+        Ctl3D = False
+        DataField = 'IE'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 7
+      end
+      object DBEdit44: TDBEdit
+        Left = 8
+        Top = 184
+        Width = 152
+        Height = 19
+        Ctl3D = False
+        DataField = 'TELEFONE'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 8
+      end
+      object DBLookupComboBox8: TDBLookupComboBox
+        Left = 85
+        Top = 231
+        Width = 273
+        Height = 19
+        Ctl3D = False
+        DataField = 'idCidade'
+        DataSource = D
+        KeyField = 'Id'
+        ListField = 'Nome'
+        ListSource = DM.dCid
+        ParentCtl3D = False
+        TabOrder = 9
+      end
+      object DBComboBox4: TDBComboBox
+        Left = 11
+        Top = 229
+        Width = 52
+        Height = 21
+        Style = csDropDownList
+        BevelKind = bkFlat
+        CharCase = ecUpperCase
+        Ctl3D = False
+        DataField = 'UF'
+        DataSource = D
+        ItemHeight = 13
+        Items.Strings = (
+          'AC'
+          'AL'
+          'AM'
+          'AP'
+          'BA'
+          'CE'
+          'DF'
+          'ES'
+          'GO'
+          'MA'
+          'MG'
+          'MS'
+          'MT'
+          'PA'
+          'PB'
+          'PE'
+          'PI'
+          'PR'
+          'RJ'
+          'RN'
+          'RO'
+          'RR'
+          'RS'
+          'SC'
+          'SE'
+          'SP'
+          'TO')
+        ParentCtl3D = False
+        TabOrder = 10
+        OnExit = DBComboBox4Exit
+      end
+    end
+  end
+  inherited D: TDataSource
+    Left = 624
+    Top = 0
+  end
+  inherited T: TZQuery
+    OnNewRecord = TNewRecord
+    SQL.Strings = (
+      'select * from parametro'
+      'where razao like :pesq')
+    Params = <
+      item
+        DataType = ftUnknown
+        Name = 'pesq'
+        ParamType = ptUnknown
+      end>
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'pesq'
+        ParamType = ptUnknown
+      end>
+    object Tid: TIntegerField
+      FieldName = 'id'
+    end
+    object TRAZAO: TStringField
+      FieldName = 'RAZAO'
+      Size = 60
+    end
+    object TCNPJ: TStringField
+      FieldName = 'CNPJ'
+    end
+    object TENDERECO: TStringField
+      FieldName = 'ENDERECO'
+      Size = 40
+    end
+    object TBAIRRO: TStringField
+      FieldName = 'BAIRRO'
+      Size = 25
+    end
+    object TCIDADE: TStringField
+      FieldName = 'CIDADE'
+      Size = 25
+    end
+    object TUF: TStringField
+      FieldName = 'UF'
+      Size = 2
+    end
+    object TCEP: TStringField
+      FieldName = 'CEP'
+      Size = 8
+    end
+    object TSITE: TStringField
+      FieldName = 'SITE'
+      Size = 50
+    end
+    object TEMAIL: TStringField
+      FieldName = 'EMAIL'
+      Size = 50
+    end
+    object TRESPONS: TStringField
+      FieldName = 'RESPONS'
+      Size = 40
+    end
+    object TTELEFONE: TStringField
+      FieldName = 'TELEFONE'
+      Size = 30
+    end
+    object TFAX: TStringField
+      FieldName = 'FAX'
+      Size = 30
+    end
+    object Tlogo: TStringField
+      FieldName = 'logo'
+      Size = 150
+    end
+    object Tex: TStringField
+      FieldName = 'ex'
+      Required = True
+      Size = 1
+    end
+    object Tfantasia: TStringField
+      FieldName = 'fantasia'
+      Size = 60
+    end
+    object TidCidade: TIntegerField
+      FieldName = 'idCidade'
+    end
+    object TMenuAtualizado: TDateField
+      FieldName = 'MenuAtualizado'
+    end
+    object Tnum: TStringField
+      FieldName = 'num'
+      Size = 10
+    end
+    object TIE: TStringField
+      FieldName = 'IE'
+    end
+  end
+  inherited up: TZUpdateSQL
+    DeleteSQL.Strings = (
+      'DELETE FROM parametro'
+      'WHERE'
+      
+        '  ((parametro.id IS NULL AND :OLD_id IS NULL) OR (parametro.id =' +
+        ' '
+      ':OLD_id))')
+    InsertSQL.Strings = (
+      'INSERT INTO parametro'
+      '  (parametro.id,parametro.RAZAO, parametro.CNPJ, '
+      'parametro.ENDERECO, parametro.BAIRRO, '
+      
+        '   parametro.CIDADE, parametro.UF, parametro.CEP, parametro.SITE' +
+        ', '
+      'parametro.EMAIL, '
+      '   parametro.RESPONS, parametro.TELEFONE, parametro.FAX, '
+      'parametro.logo, '
+      
+        '   parametro.ex, parametro.fantasia, parametro.num, parametro.id' +
+        'Cidade, '
+      '   parametro.MenuAtualizado)'
+      'VALUES'
+      '  (:ID, :RAZAO, :CNPJ, :ENDERECO, :BAIRRO, :CIDADE, :UF, :CEP, '
+      ':SITE, :EMAIL, '
+      
+        '   :RESPONS, :TELEFONE, :FAX, :logo, :ex, :fantasia, :num, :idCi' +
+        'dade, '
+      ':MenuAtualizado)')
+    ModifySQL.Strings = (
+      'UPDATE parametro SET'
+      '  parametro.RAZAO = :RAZAO,'
+      '  parametro.CNPJ = :CNPJ,'
+      '  parametro.ENDERECO = :ENDERECO,'
+      '  parametro.BAIRRO = :BAIRRO,'
+      '  parametro.CIDADE = :CIDADE,'
+      '  parametro.UF = :UF,'
+      '  parametro.CEP = :CEP,'
+      '  parametro.SITE = :SITE,'
+      '  parametro.EMAIL = :EMAIL,'
+      '  parametro.RESPONS = :RESPONS,'
+      '  parametro.TELEFONE = :TELEFONE,'
+      '  parametro.FAX = :FAX,'
+      '  parametro.logo = :logo,'
+      '  parametro.ex = :ex,'
+      '  parametro.fantasia = :fantasia,'
+      '  parametro.num = :num,'
+      '  parametro.idCidade = :idCidade,'
+      '  parametro.MenuAtualizado = :MenuAtualizado'
+      'WHERE'
+      
+        '  ((parametro.id IS NULL AND :OLD_id IS NULL) OR (parametro.id =' +
+        ' '
+      ':OLD_id))')
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'Razao'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'cnpj'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'Endereco'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'Bairro'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'Cidade'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'UF'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'CEP'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'SITE'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'EMAIL'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'RESPONS'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'TELEFONE'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'FAX'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'logo'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'ex'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'Fantasia'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'Num'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'IdCidade'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'MenuAtualizado'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'OLD_Id'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'Id'
+        ParamType = ptUnknown
+      end>
+  end
+end
