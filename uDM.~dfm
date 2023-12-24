@@ -1,0 +1,742 @@
+object DM: TDM
+  OldCreateOrder = False
+  OnCreate = DataModuleCreate
+  Left = 338
+  Top = 186
+  Height = 419
+  Width = 691
+  object Conex: TZConnection
+    Protocol = 'mysql-4.1'
+    Port = 3306
+    Database = 'db_Fabrica'
+    User = 'root'
+    Password = 'ThR060607'
+    Left = 16
+    Top = 8
+  end
+  object dUSer: TDataSource
+    DataSet = qUser
+    Left = 47
+    Top = 121
+  end
+  object qUser: TZQuery
+    Connection = Conex
+    SQL.Strings = (
+      'select usuario.* , permissao.*, menu.tipo tipo_M, menu.*'
+      'from usuario'
+      'Left join permissao on permissao.IdUsuario = usuario.tipo'
+      'left join menu on menu.Id = permissao.IdMenu'
+      'where usuario.user = :User and usuario.senha = :Senha  ')
+    Params = <
+      item
+        DataType = ftString
+        Name = 'User'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'Senha'
+        ParamType = ptInput
+      end>
+    Left = 16
+    Top = 120
+    ParamData = <
+      item
+        DataType = ftString
+        Name = 'User'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'Senha'
+        ParamType = ptInput
+      end>
+    object qUserId: TIntegerField
+      FieldName = 'Id'
+    end
+    object qUserNome: TStringField
+      FieldName = 'Nome'
+      Size = 50
+    end
+    object qUserSenha: TStringField
+      FieldName = 'Senha'
+      Size = 15
+    end
+    object qUserData: TDateField
+      FieldName = 'Data'
+    end
+    object qUserUser: TStringField
+      FieldName = 'User'
+      Size = 15
+    end
+    object qUserId_1: TIntegerField
+      FieldName = 'Id_1'
+    end
+    object qUserIdUsuario: TIntegerField
+      FieldName = 'IdUsuario'
+    end
+    object qUserIdMenu: TIntegerField
+      FieldName = 'IdMenu'
+    end
+    object qUsertipo_M: TStringField
+      FieldName = 'tipo_M'
+      Required = True
+      Size = 1
+    end
+    object qUserPermitido: TStringField
+      FieldName = 'Permitido'
+      Required = True
+      Size = 1
+    end
+    object qUserId_2: TIntegerField
+      FieldName = 'Id_2'
+    end
+    object qUserDescricao: TStringField
+      FieldName = 'Descricao'
+      Size = 50
+    end
+    object qUserNome_1: TStringField
+      FieldName = 'Nome_1'
+      Size = 50
+    end
+    object qUserTipo: TIntegerField
+      FieldName = 'Tipo'
+    end
+    object qUseratalho: TStringField
+      FieldName = 'atalho'
+      Size = 100
+    end
+  end
+  object dParametro: TDataSource
+    DataSet = qParametro
+    Left = 57
+    Top = 304
+  end
+  object qParametro: TZTable
+    Connection = Conex
+    TableName = 'parametro'
+    Left = 17
+    Top = 304
+    object qParametroid: TIntegerField
+      FieldName = 'id'
+    end
+    object qParametroRAZAO: TStringField
+      FieldName = 'RAZAO'
+      Size = 60
+    end
+    object qParametroCNPJ: TStringField
+      FieldName = 'CNPJ'
+    end
+    object qParametroENDERECO: TStringField
+      FieldName = 'ENDERECO'
+      Size = 40
+    end
+    object qParametroBAIRRO: TStringField
+      FieldName = 'BAIRRO'
+      Size = 25
+    end
+    object qParametroCIDADE: TStringField
+      FieldName = 'CIDADE'
+      Size = 25
+    end
+    object qParametroUF: TStringField
+      FieldName = 'UF'
+      Size = 2
+    end
+    object qParametroCEP: TStringField
+      FieldName = 'CEP'
+      Size = 8
+    end
+    object qParametroSITE: TStringField
+      FieldName = 'SITE'
+      Size = 50
+    end
+    object qParametroEMAIL: TStringField
+      FieldName = 'EMAIL'
+      Size = 50
+    end
+    object qParametroRESPONS: TStringField
+      FieldName = 'RESPONS'
+      Size = 40
+    end
+    object qParametroTELEFONE: TStringField
+      FieldName = 'TELEFONE'
+      Size = 30
+    end
+    object qParametroFAX: TStringField
+      FieldName = 'FAX'
+      Size = 30
+    end
+    object qParametrologo: TStringField
+      FieldName = 'logo'
+      Size = 150
+    end
+    object qParametroex: TStringField
+      FieldName = 'ex'
+      Required = True
+      Size = 1
+    end
+    object qParametrofantasia: TStringField
+      FieldName = 'fantasia'
+      Size = 60
+    end
+    object qParametroidCidade: TIntegerField
+      FieldName = 'idCidade'
+    end
+    object qParametroMenuAtualizado: TDateField
+      FieldName = 'MenuAtualizado'
+    end
+    object qParametronum: TStringField
+      FieldName = 'num'
+      Size = 10
+    end
+  end
+  object qExec: TZQuery
+    Connection = Conex
+    SQL.Strings = (
+      
+        'select usuario.* , permissao.*, menu.*, tpuser.max_desconto, tpu' +
+        'ser.libera_credito'
+      'from usuario'
+      'Left join permissao on permissao.IdTpUsu = usuario.IdTpUser'
+      'left join menu on menu.Id = permissao.IdMenu'
+      'left join tpuser on tpuser.id = usuario.IdTpUser'
+      
+        'where usuario.user = :User and usuario.senha = :Senha  and ativo' +
+        ' = '#39'S'#39)
+    Params = <
+      item
+        DataType = ftString
+        Name = 'User'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'Senha'
+        ParamType = ptInput
+      end>
+    Left = 86
+    Top = 56
+    ParamData = <
+      item
+        DataType = ftString
+        Name = 'User'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'Senha'
+        ParamType = ptInput
+      end>
+    object IntegerField1: TIntegerField
+      FieldName = 'Id'
+    end
+    object StringField1: TStringField
+      FieldName = 'Nome'
+      Size = 100
+    end
+    object StringField2: TStringField
+      FieldName = 'Endereco'
+      Size = 60
+    end
+    object StringField3: TStringField
+      FieldName = 'Num'
+    end
+    object StringField4: TStringField
+      FieldName = 'Bairro'
+      Size = 30
+    end
+    object StringField5: TStringField
+      FieldName = 'Cidade'
+      Size = 30
+    end
+    object StringField6: TStringField
+      FieldName = 'UF'
+      Size = 2
+    end
+    object StringField7: TStringField
+      FieldName = 'CEP'
+      Size = 8
+    end
+    object DateField1: TDateField
+      FieldName = 'DtAdm'
+    end
+    object DateField2: TDateField
+      FieldName = 'DtNasc'
+    end
+    object StringField8: TStringField
+      FieldName = 'Tel1'
+      Size = 10
+    end
+    object StringField9: TStringField
+      FieldName = 'Tel2'
+      Size = 10
+    end
+    object StringField10: TStringField
+      FieldName = 'Tel3'
+      Size = 10
+    end
+    object StringField11: TStringField
+      FieldName = 'Email'
+      Size = 100
+    end
+    object StringField12: TStringField
+      FieldName = 'CPF'
+    end
+    object StringField13: TStringField
+      FieldName = 'RG'
+    end
+    object StringField14: TStringField
+      FieldName = 'User'
+      Size = 30
+    end
+    object StringField15: TStringField
+      FieldName = 'Senha'
+      Size = 30
+    end
+    object IntegerField2: TIntegerField
+      FieldName = 'IdTpUser'
+    end
+    object IntegerField3: TIntegerField
+      FieldName = 'Id_1'
+    end
+    object IntegerField4: TIntegerField
+      FieldName = 'IdTpUsu'
+    end
+    object IntegerField5: TIntegerField
+      FieldName = 'IdMenu'
+    end
+    object StringField16: TStringField
+      FieldName = 'Permitir'
+      Required = True
+      Size = 1
+    end
+    object IntegerField6: TIntegerField
+      FieldName = 'Id_2'
+    end
+    object StringField17: TStringField
+      FieldName = 'Nome_1'
+      Size = 100
+    end
+    object StringField18: TStringField
+      FieldName = 'Descricao'
+      Size = 200
+    end
+    object StringField19: TStringField
+      FieldName = 'tipo'
+      Required = True
+      Size = 1
+    end
+    object StringField20: TStringField
+      FieldName = 'efetiva'
+      Required = True
+      Size = 1
+    end
+    object StringField21: TStringField
+      FieldName = 'Franqueadora'
+      Required = True
+      Size = 1
+    end
+    object FloatField1: TFloatField
+      FieldName = 'max_desconto'
+      DisplayFormat = '#0.00'
+    end
+  end
+  object qPesq: TZQuery
+    Connection = Conex
+    SQL.Strings = (
+      
+        'select usuario.* , permissao.*, menu.*, tpuser.max_desconto, tpu' +
+        'ser.libera_credito'
+      'from usuario'
+      'Left join permissao on permissao.IdTpUsu = usuario.IdTpUser'
+      'left join menu on menu.Id = permissao.IdMenu'
+      'left join tpuser on tpuser.id = usuario.IdTpUser'
+      
+        'where usuario.user = :User and usuario.senha = :Senha  and ativo' +
+        ' = '#39'S'#39)
+    Params = <
+      item
+        DataType = ftString
+        Name = 'User'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'Senha'
+        ParamType = ptInput
+      end>
+    Left = 16
+    Top = 56
+    ParamData = <
+      item
+        DataType = ftString
+        Name = 'User'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'Senha'
+        ParamType = ptInput
+      end>
+  end
+  object qSelect: TZQuery
+    Connection = Conex
+    SQL.Strings = (
+      'select usuario.* , permissao.*, menu.*'
+      'from usuario'
+      'Left join permissao on permissao.IdUsuario = usuario.Id'
+      'left join menu on menu.Id = permissao.IdMenu'
+      'where usuario.user = :User and usuario.senha = :Senha  ')
+    Params = <
+      item
+        DataType = ftString
+        Name = 'User'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'Senha'
+        ParamType = ptInput
+      end>
+    Left = 126
+    Top = 56
+    ParamData = <
+      item
+        DataType = ftString
+        Name = 'User'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'Senha'
+        ParamType = ptInput
+      end>
+  end
+  object qIns: TZQuery
+    Connection = Conex
+    SQL.Strings = (
+      
+        'select usuario.* , permissao.*, menu.*, tpuser.max_desconto, tpu' +
+        'ser.libera_credito'
+      'from usuario'
+      'Left join permissao on permissao.IdTpUsu = usuario.IdTpUser'
+      'left join menu on menu.Id = permissao.IdMenu'
+      'left join tpuser on tpuser.id = usuario.IdTpUser'
+      
+        'where usuario.user = :User and usuario.senha = :Senha  and ativo' +
+        ' = '#39'S'#39)
+    Params = <
+      item
+        DataType = ftString
+        Name = 'User'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'Senha'
+        ParamType = ptInput
+      end>
+    Left = 168
+    Top = 56
+    ParamData = <
+      item
+        DataType = ftString
+        Name = 'User'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'Senha'
+        ParamType = ptInput
+      end>
+  end
+  object qCid: TZQuery
+    Connection = Conex
+    SQL.Strings = (
+      'select *'
+      'from cidade'
+      'where ((:UF = '#39'TT'#39') or (UF = :UF))'
+      'order by Nome')
+    Params = <
+      item
+        DataType = ftUnknown
+        Name = 'UF'
+        ParamType = ptUnknown
+      end>
+    Left = 16
+    Top = 169
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'UF'
+        ParamType = ptUnknown
+      end>
+    object qCidId: TIntegerField
+      FieldName = 'Id'
+      Required = True
+    end
+    object qCidNome: TStringField
+      FieldName = 'Nome'
+      Size = 50
+    end
+    object qCidUF: TStringField
+      FieldName = 'UF'
+      Size = 2
+    end
+  end
+  object dCid: TDataSource
+    DataSet = qCid
+    Left = 48
+    Top = 171
+  end
+  object qAtuMenu: TZQuery
+    Connection = Conex
+    UpdateObject = qUpAtuMenu
+    SQL.Strings = (
+      'select menu.* from menu order by menu.id')
+    Params = <>
+    Left = 264
+    Top = 148
+    object qAtuMenuId: TIntegerField
+      FieldName = 'Id'
+    end
+    object qAtuMenuNome: TStringField
+      FieldName = 'Nome'
+      Size = 100
+    end
+    object qAtuMenuDescricao: TStringField
+      FieldName = 'Descricao'
+      Size = 200
+    end
+    object qAtuMenutipo: TStringField
+      FieldName = 'tipo'
+      Required = True
+      Size = 1
+    end
+  end
+  object qUpAtuMenu: TZUpdateSQL
+    DeleteSQL.Strings = (
+      'DELETE FROM menu'
+      'WHERE'
+      '  ((menu.Id IS NULL AND :OLD_Id IS NULL) OR (menu.Id = :OLD_Id))')
+    InsertSQL.Strings = (
+      'INSERT INTO menu'
+      '  (menu.Id, menu.Nome, menu.Descricao, menu.tipo)'
+      'VALUES'
+      '  (:Id, :Nome, :Descricao, :tipo)')
+    ModifySQL.Strings = (
+      'UPDATE menu SET'
+      '  menu.Id = :Id,'
+      '  menu.Nome = :Nome,'
+      '  menu.Descricao = :Descricao,'
+      '  menu.tipo = :tipo'
+      'WHERE'
+      '  ((menu.Id IS NULL AND :OLD_Id IS NULL) OR (menu.Id = :OLD_Id))')
+    UseSequenceFieldForRefreshSQL = False
+    Left = 296
+    Top = 148
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'Id'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'Nome'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'Descricao'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'tipo'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'OLD_Id'
+        ParamType = ptUnknown
+      end>
+  end
+  object Permissao: TZQuery
+    Connection = Conex
+    UpdateObject = UpPermissao
+    SQL.Strings = (
+      'select permissao.*, menu.Nome'
+      'from permissao '
+      'left join menu on menu.id = permissao.IdMenu'
+      'where permissao.Idusuario = :User '
+      'Order By menu.Nome')
+    Params = <
+      item
+        DataType = ftInteger
+        Name = 'User'
+        ParamType = ptInput
+      end>
+    Left = 256
+    Top = 200
+    ParamData = <
+      item
+        DataType = ftInteger
+        Name = 'User'
+        ParamType = ptInput
+      end>
+    object PermissaoId: TIntegerField
+      FieldName = 'Id'
+    end
+    object PermissaoIdMenu: TIntegerField
+      FieldName = 'IdMenu'
+    end
+    object PermissaoNome: TStringField
+      FieldName = 'Nome'
+      Size = 100
+    end
+    object PermissaoIdUsuario: TIntegerField
+      FieldName = 'IdUsuario'
+    end
+    object PermissaoPermitido: TStringField
+      FieldName = 'Permitido'
+      Required = True
+      Size = 1
+    end
+    object Permissaoatalho: TStringField
+      FieldName = 'atalho'
+      Size = 100
+    end
+  end
+  object UpPermissao: TZUpdateSQL
+    DeleteSQL.Strings = (
+      'DELETE FROM permissao'
+      'WHERE'
+      
+        '  ((permissao.Id IS NULL AND :OLD_Id IS NULL) OR (permissao.Id =' +
+        ' '
+      ':OLD_Id))')
+    InsertSQL.Strings = (
+      'INSERT INTO permissao'
+      '  (permissao.Id, permissao.IdUsuario, permissao.IdMenu, '
+      'permissao.Permitido, '
+      '   permissao.atalho)'
+      'VALUES'
+      '  (:Id, :IdUsuario, :IdMenu, :Permitido, :atalho)')
+    ModifySQL.Strings = (
+      'UPDATE permissao SET'
+      '  permissao.Id = :Id,'
+      '  permissao.IdUsuario = :IdUsuario,'
+      '  permissao.IdMenu = :IdMenu,'
+      '  permissao.Permitido = :Permitido,'
+      '  permissao.atalho = :atalho'
+      'WHERE'
+      
+        '  ((permissao.Id IS NULL AND :OLD_Id IS NULL) OR (permissao.Id =' +
+        ' '
+      ':OLD_Id))')
+    UseSequenceFieldForRefreshSQL = False
+    Left = 296
+    Top = 200
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'Id'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'IdUsuario'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'IdMenu'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'Permitido'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'atalho'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'OLD_Id'
+        ParamType = ptUnknown
+      end>
+  end
+  object dPermissao: TDataSource
+    DataSet = Permissao
+    Left = 327
+    Top = 200
+  end
+  object qMenu: TZQuery
+    Connection = Conex
+    SQL.Strings = (
+      'select * from menu order by id')
+    Params = <>
+    Left = 264
+    Top = 88
+    object qMenuId: TIntegerField
+      FieldName = 'Id'
+    end
+    object qMenuNome: TStringField
+      FieldName = 'Nome'
+      Size = 100
+    end
+    object qMenuDescricao: TStringField
+      FieldName = 'Descricao'
+      Size = 200
+    end
+  end
+  object dMenu: TDataSource
+    DataSet = qMenu
+    Left = 295
+    Top = 88
+  end
+  object qUn: TZQuery
+    Connection = Conex
+    SQL.Strings = (
+      'select p.ft_conv_un  from produto p'
+      'where p.tipo = '#39'M'#39
+      'and p.id = :IDm'
+      'union'
+      'select p.ft_conv_2un  from produto p'
+      'where p.tipo = '#39'M'#39
+      'and p.id = :IDm')
+    Params = <
+      item
+        DataType = ftUnknown
+        Name = 'IDm'
+        ParamType = ptUnknown
+      end>
+    Left = 93
+    Top = 117
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'IDm'
+        ParamType = ptUnknown
+      end>
+    object qUnft_conv_un: TStringField
+      FieldName = 'ft_conv_un'
+      Size = 10
+    end
+  end
+  object dUn: TDataSource
+    DataSet = qUn
+    Left = 125
+    Top = 117
+  end
+  object dPesq: TDataSource
+    DataSet = qPesq
+    Left = 50
+    Top = 58
+  end
+end

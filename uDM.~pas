@@ -1,0 +1,231 @@
+unit uDM;
+
+interface
+
+uses
+  SysUtils, Forms, Dialogs, Classes, DB, DBTables, REgistry, IniFiles,
+  ZConnection, ZAbstractRODataset, ZAbstractDataset,
+  ZDataset, ZAbstractTable, ZSqlUpdate, DBCtrls,
+  StdCtrls, Windows;
+
+  Type
+
+  TConecta = Record
+      DataBase,
+      HostName,
+      Name,
+      Password,
+      User,
+      Protocol : String;
+      Separador_decimal: Char;
+  End;
+
+
+type
+  TDM = class(TDataModule)
+    Conex: TZConnection;
+    dUSer: TDataSource;
+    qUser: TZQuery;
+    dParametro: TDataSource;
+    qParametro: TZTable;
+    qExec: TZQuery;
+    IntegerField1: TIntegerField;
+    StringField1: TStringField;
+    StringField2: TStringField;
+    StringField3: TStringField;
+    StringField4: TStringField;
+    StringField5: TStringField;
+    StringField6: TStringField;
+    StringField7: TStringField;
+    DateField1: TDateField;
+    DateField2: TDateField;
+    StringField8: TStringField;
+    StringField9: TStringField;
+    StringField10: TStringField;
+    StringField11: TStringField;
+    StringField12: TStringField;
+    StringField13: TStringField;
+    StringField14: TStringField;
+    StringField15: TStringField;
+    IntegerField2: TIntegerField;
+    IntegerField3: TIntegerField;
+    IntegerField4: TIntegerField;
+    IntegerField5: TIntegerField;
+    StringField16: TStringField;
+    IntegerField6: TIntegerField;
+    StringField17: TStringField;
+    StringField18: TStringField;
+    StringField19: TStringField;
+    StringField20: TStringField;
+    StringField21: TStringField;
+    FloatField1: TFloatField;
+    qPesq: TZQuery;
+    qSelect: TZQuery;
+    qIns: TZQuery;
+    qCid: TZQuery;
+    qCidId: TIntegerField;
+    qCidNome: TStringField;
+    qCidUF: TStringField;
+    dCid: TDataSource;
+    qAtuMenu: TZQuery;
+    qAtuMenuId: TIntegerField;
+    qAtuMenuNome: TStringField;
+    qAtuMenuDescricao: TStringField;
+    qAtuMenutipo: TStringField;
+    qUpAtuMenu: TZUpdateSQL;
+    Permissao: TZQuery;
+    PermissaoId: TIntegerField;
+    PermissaoIdMenu: TIntegerField;
+    PermissaoNome: TStringField;
+    UpPermissao: TZUpdateSQL;
+    dPermissao: TDataSource;
+    qMenu: TZQuery;
+    qMenuId: TIntegerField;
+    qMenuNome: TStringField;
+    qMenuDescricao: TStringField;
+    dMenu: TDataSource;
+    qParametroid: TIntegerField;
+    qParametroRAZAO: TStringField;
+    qParametroCNPJ: TStringField;
+    qParametroENDERECO: TStringField;
+    qParametroBAIRRO: TStringField;
+    qParametroCIDADE: TStringField;
+    qParametroUF: TStringField;
+    qParametroCEP: TStringField;
+    qParametroSITE: TStringField;
+    qParametroEMAIL: TStringField;
+    qParametroRESPONS: TStringField;
+    qParametroTELEFONE: TStringField;
+    qParametroFAX: TStringField;
+    qParametrologo: TStringField;
+    qParametroex: TStringField;
+    qParametrofantasia: TStringField;
+    qParametroidCidade: TIntegerField;
+    qUserId: TIntegerField;
+    qUserNome: TStringField;
+    qUserSenha: TStringField;
+    qUserData: TDateField;
+    qUserUser: TStringField;
+    qUserId_1: TIntegerField;
+    qUserIdUsuario: TIntegerField;
+    qUserIdMenu: TIntegerField;
+    qUserPermitido: TStringField;
+    qUserId_2: TIntegerField;
+    qUserDescricao: TStringField;
+    qUserNome_1: TStringField;
+    qParametroMenuAtualizado: TDateField;
+    qUserTipo: TIntegerField;
+    qUsertipo_M: TStringField;
+    qParametronum: TStringField;
+    qUn: TZQuery;
+    qUnft_conv_un: TStringField;
+    dUn: TDataSource;
+    dPesq: TDataSource;
+    PermissaoIdUsuario: TIntegerField;
+    PermissaoPermitido: TStringField;
+    Permissaoatalho: TStringField;
+    qUseratalho: TStringField;
+    procedure DataModuleCreate(Sender: TObject);
+
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+     function CarregaINI: TConecta;
+  end;
+
+var
+  DM: TDM;
+  iRetorno : Integer;
+  FValoresIni: TConecta;
+  Sep_Decimal : Char;
+  ImpPadrao   : String;
+  Procedure ExecSQL(vSelect : String);
+  Function InsereCodigo(Tab, Campo: string):integer;
+
+implementation
+
+uses  uFuncao, uMenu;
+
+{$R *.dfm}
+
+Function InsereCodigo(Tab, Campo: string):integer;
+begin
+ DM.qIns.Close;
+ DM.qIns.SQL.Clear;
+ DM.qIns.SQL.Add('select max('+Campo+') as Cod from '+Tab);
+ DM.qIns.Open;
+ Result := DM.qIns.FieldByName('Cod').AsInteger + 1;
+end;
+
+Procedure ExecSQL(vSelect : String);
+begin
+ DM.qExec.Close;
+ DM.qExec.SQL.Clear;
+ DM.qExec.SQL.Add(vSelect);
+ DM.qExec.ExecSQL;
+ DM.qExec.ApplyUpdates;
+
+end;
+
+function TDM.CarregaINI: TConecta;
+Var
+  FIni: TIniFile;
+  PATH: STRING;
+  sepdec : string;
+Begin
+  GetDir(0, PATH);
+  FIni := TIniFile.Create(PATH + '\Conectar.ini');
+  Try
+    With Result Do
+    Begin
+      DataBase          := FIni.ReadString('database' , 'DataBase'    , '');
+      HostName          := FIni.ReadString('database' , 'HostName'    , '');
+      Name              := FIni.ReadString('database' , 'Name'        , '');
+      //Password        := FIni.ReadString('database' , 'Password'  , '');
+      User              := FIni.ReadString('database' , 'User'        , '');
+      Protocol          := FIni.ReadString('database' , 'Protocol'    , '');
+      sepDec            := FIni.ReadString('database' , 'Separador_Decimal'  , ',');
+      Separador_decimal := sepDec[1];
+    End;
+  Finally
+    FreeAndNil(FIni);
+  End;
+
+end;
+
+procedure TDM.DataModuleCreate(Sender: TObject);
+var
+  sepDec : String;
+Begin
+  Conex.Connected := False;
+  Conex.HostName  := '';
+
+  FValoresIni    := CarregaIni;
+  Conex.Database := FValoresIni.DataBase;
+  Conex.HostName := FValoresIni.HostName;
+  Conex.Name     := FValoresIni.Name;
+  Conex.User     := FValoresIni.User;
+  //Conex.Password := FValoresIni.Password;
+  Conex.Protocol := FValoresIni.Protocol;
+  try
+   Conex.Connected  := True;
+   sepDec           := trim(FValoresIni.Separador_decimal);
+   Sep_decimal      := sepDec[1];
+
+  except
+   Application.MessageBox('Não foi possivel conectar com a base de Dados, Tente Novamente','Atenção');
+   halt;
+  end;
+
+  qParametro.Open;
+
+
+end;
+
+
+end.
+
+
+
+
