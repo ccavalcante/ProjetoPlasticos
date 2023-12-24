@@ -1,0 +1,346 @@
+inherited fCadTpUser: TfCadTpUser
+  Left = 321
+  Top = 141
+  Caption = 'Tipo de Usu'#225'rio'
+  ClientHeight = 657
+  OldCreateOrder = True
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited Image2: TImage
+    Height = 616
+  end
+  inherited PageControl1: TPageControl
+    Height = 574
+    ActivePage = TabSheet3
+    inherited TabSheet1: TTabSheet
+      inherited DBGrid1: TDBGrid
+        Height = 546
+      end
+    end
+    inherited TabSheet2: TTabSheet
+      object Label2: TLabel
+        Left = 8
+        Top = 8
+        Width = 40
+        Height = 13
+        Caption = 'C'#243'digo'
+        FocusControl = DBEdit1
+      end
+      object Label3: TLabel
+        Left = 8
+        Top = 48
+        Width = 58
+        Height = 13
+        Caption = 'Descri'#231#227'o'
+        FocusControl = DBEdit2
+      end
+      object DBEdit1: TDBEdit
+        Left = 8
+        Top = 24
+        Width = 95
+        Height = 19
+        CharCase = ecUpperCase
+        Ctl3D = False
+        DataField = 'Id'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 0
+      end
+      object DBEdit2: TDBEdit
+        Left = 8
+        Top = 64
+        Width = 465
+        Height = 19
+        CharCase = ecUpperCase
+        Ctl3D = False
+        DataField = 'Descricao'
+        DataSource = D
+        ParentCtl3D = False
+        TabOrder = 1
+      end
+    end
+    object TabSheet3: TTabSheet
+      Caption = 'Permiss'#227'o'
+      ImageIndex = 2
+      object CheckDBGrid1: TCheckDBGrid
+        Left = 0
+        Top = 0
+        Width = 601
+        Height = 546
+        Align = alLeft
+        Ctl3D = False
+        DataSource = dPerm
+        ParentCtl3D = False
+        TabOrder = 0
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -11
+        TitleFont.Name = 'MS Sans Serif'
+        TitleFont.Style = [fsBold]
+        AllowAppend = False
+        Columns = <
+          item
+            Expanded = False
+            FieldName = 'Permitido'
+            Visible = True
+            Check = True
+            ValueChecked = 'T'
+            ValueUnchecked = 'F'
+          end
+          item
+            Expanded = False
+            FieldName = 'DESCRICAO'
+            Title.Caption = 'Descri'#231#227'o Menu'
+            Width = 484
+            Visible = True
+            ValueChecked = 'T'
+            ValueUnchecked = 'F'
+          end>
+      end
+      object ckTudo: TCheckBox
+        Left = 608
+        Top = 284
+        Width = 97
+        Height = 17
+        Caption = 'Permitir Tudo'
+        TabOrder = 1
+        OnClick = ckTudoClick
+      end
+    end
+  end
+  inherited D: TDataSource
+    Left = 624
+    Top = 0
+  end
+  inherited T: TZQuery
+    AfterScroll = TAfterScroll
+    SQL.Strings = (
+      'select * from Tpuser'
+      'Where descricao like :pesq'
+      'order by descricao')
+    Params = <
+      item
+        DataType = ftUnknown
+        Name = 'pesq'
+        ParamType = ptUnknown
+      end>
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'pesq'
+        ParamType = ptUnknown
+      end>
+    object TId: TIntegerField
+      FieldName = 'Id'
+    end
+    object TDescricao: TStringField
+      FieldName = 'Descricao'
+      Size = 50
+    end
+  end
+  inherited up: TZUpdateSQL
+    DeleteSQL.Strings = (
+      'DELETE FROM Tpuser'
+      'WHERE'
+      
+        '  ((Tpuser.Id IS NULL AND :OLD_Id IS NULL) OR (Tpuser.Id = :OLD_' +
+        'Id))')
+    InsertSQL.Strings = (
+      'INSERT INTO Tpuser'
+      '  (Tpuser.id, Tpuser.Descricao)'
+      'VALUES'
+      '  (:id, :Descricao)')
+    ModifySQL.Strings = (
+      'UPDATE Tpuser SET'
+      '  Tpuser.Descricao = :Descricao'
+      'WHERE'
+      
+        '  ((Tpuser.Id IS NULL AND :OLD_Id IS NULL) OR (Tpuser.Id = :OLD_' +
+        'Id))')
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'Descricao'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'OLD_Id'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'Id'
+        ParamType = ptUnknown
+      end>
+  end
+  object Perm: TZQuery
+    Connection = DM.Conex
+    UpdateObject = upPerm
+    AfterPost = PermAfterPost
+    SQL.Strings = (
+      'select Permissao.*,  Menu.DESCRICAO'
+      'from Permissao'
+      'LEFT JOIN Menu ON Menu.ID = Permissao.IDMENU'
+      'where Permissao.IdUsuario = :ID'
+      'order by Menu.DESCRICAO'
+      '')
+    Params = <
+      item
+        DataType = ftUnknown
+        Name = 'ID'
+        ParamType = ptUnknown
+      end>
+    Left = 680
+    Top = 80
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'ID'
+        ParamType = ptUnknown
+      end>
+    object PermId: TIntegerField
+      FieldName = 'Id'
+    end
+    object PermIdUsuario: TIntegerField
+      FieldName = 'IdUsuario'
+    end
+    object PermIdMenu: TIntegerField
+      FieldName = 'IdMenu'
+    end
+    object PermPermitido: TStringField
+      FieldName = 'Permitido'
+      Required = True
+      Size = 1
+    end
+    object PermDESCRICAO: TStringField
+      FieldName = 'DESCRICAO'
+      Size = 50
+    end
+  end
+  object upPerm: TZUpdateSQL
+    DeleteSQL.Strings = (
+      'DELETE FROM Permissao'
+      'WHERE'
+      
+        '  ((Permissao.Id IS NULL AND :OLD_Id IS NULL) OR (Permissao.Id =' +
+        ' :OLD_Id))')
+    InsertSQL.Strings = (
+      'INSERT INTO Permissao'
+      '  (Permissao.IdUsuario, Permissao.IdMenu, Permissao.Permitido)'
+      'VALUES'
+      '  (:IdUsuario, :IdMenu, :Permitido)')
+    ModifySQL.Strings = (
+      'UPDATE Permissao SET'
+      '  Permissao.IdUsuario = :IdUsuario,'
+      '  Permissao.IdMenu = :IdMenu,'
+      '  Permissao.Permitido = :Permitido'
+      'WHERE'
+      
+        '  ((Permissao.Id IS NULL AND :OLD_Id IS NULL) OR (Permissao.Id =' +
+        ' '
+      ':OLD_Id))')
+    UseSequenceFieldForRefreshSQL = False
+    Left = 712
+    Top = 80
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'IdUsuario'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'IdMenu'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'Permitido'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'OLD_Id'
+        ParamType = ptUnknown
+      end>
+  end
+  object Menu: TZQuery
+    Connection = DM.Conex
+    UpdateObject = upMenu
+    SQL.Strings = (
+      'select * from Menu where Menu.nome is not null')
+    Params = <>
+    Left = 688
+    Top = 136
+    object MenuId: TIntegerField
+      FieldName = 'Id'
+    end
+    object MenuDescricao: TStringField
+      FieldName = 'Descricao'
+      Size = 50
+    end
+    object MenuNome: TStringField
+      FieldName = 'Nome'
+      Size = 50
+    end
+    object Menutipo: TStringField
+      FieldName = 'tipo'
+      Required = True
+      Size = 1
+    end
+  end
+  object upMenu: TZUpdateSQL
+    DeleteSQL.Strings = (
+      'DELETE FROM Menu'
+      'WHERE'
+      '  Menu.Id = :OLD_Id')
+    InsertSQL.Strings = (
+      'INSERT INTO Menu'
+      '  (Menu.Id, Menu.Nome, Menu.Descricao, Menu.tipo)'
+      'VALUES'
+      '  (:Id, :Nome, :Descricao, :tipo)')
+    ModifySQL.Strings = (
+      'UPDATE Menu SET'
+      '  Menu.Id = :Id,'
+      '  Menu.Nome = :Nome,'
+      '  Menu.Descricao = :Descricao,'
+      '  Menu.tipo = :tipo'
+      'WHERE'
+      '  Menu.Id = :OLD_Id')
+    UseSequenceFieldForRefreshSQL = False
+    Left = 712
+    Top = 136
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'Id'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'Nome'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'Descricao'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'tipo'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'OLD_Id'
+        ParamType = ptUnknown
+      end>
+  end
+  object dPerm: TDataSource
+    DataSet = Perm
+    Left = 744
+    Top = 80
+  end
+end

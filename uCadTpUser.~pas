@@ -1,0 +1,216 @@
+unit uCadTpUser;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, uCadPadrao, ZSqlUpdate, DB, ZAbstractRODataset,
+  ZAbstractDataset, ZDataset, ActnList, ImgList, Grids, DBGrids, ComCtrls,
+  StdCtrls, ToolWin, jpeg, ExtCtrls, Mask, DBCtrls, CheckDBGrid;
+
+type
+  TfCadTpUser = class(TfCadPadrao)
+    Label2: TLabel;
+    DBEdit1: TDBEdit;
+    Label3: TLabel;
+    DBEdit2: TDBEdit;
+    TabSheet3: TTabSheet;
+    CheckDBGrid1: TCheckDBGrid;
+    ckTudo: TCheckBox;
+    Perm: TZQuery;
+    upPerm: TZUpdateSQL;
+    Menu: TZQuery;
+    upMenu: TZUpdateSQL;
+    dPerm: TDataSource;
+    MenuId: TIntegerField;
+    MenuDescricao: TStringField;
+    MenuNome: TStringField;
+    Menutipo: TStringField;
+    PermId: TIntegerField;
+    PermIdUsuario: TIntegerField;
+    PermIdMenu: TIntegerField;
+    PermPermitido: TStringField;
+    PermDESCRICAO: TStringField;
+    TId: TIntegerField;
+    TDescricao: TStringField;
+    procedure acInserirExecute(Sender: TObject);
+    procedure acEditarExecute(Sender: TObject);
+    procedure ckTudoClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure acSalvarExecute(Sender: TObject);
+    procedure TAfterScroll(DataSet: TDataSet);
+    procedure PermAfterPost(DataSet: TDataSet);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    sql : String;
+    { Public declarations }
+  end;
+
+var
+  fCadTpUser: TfCadTpUser;
+
+implementation
+
+uses uDM, uMenu;
+
+{$R *.dfm}
+
+procedure TfCadTpUser.acInserirExecute(Sender: TObject);
+begin
+  inherited;
+  DBEdit1.ReadOnly := True;
+  DBEdit1.Color := $00CEFDFC;
+  DBEdit2.SetFocus;
+end;
+
+procedure TfCadTpUser.acEditarExecute(Sender: TObject);
+begin
+  inherited;
+  DBEdit1.ReadOnly := True;
+  DBEdit1.Color := $00CEFDFC;
+  DBEdit2.SetFocus;
+end;
+
+procedure TfCadTpUser.ckTudoClick(Sender: TObject);
+begin
+  inherited;
+
+ Perm.First;
+ while Perm.Eof = false do
+  begin
+   Perm.Edit;
+   if ckTudo.Checked then
+    PermPermitido.Value := 'T'
+   else
+    PermPermitido.Value := 'F';
+   Perm.Post;
+
+   Perm.Next;
+  end;
+
+
+end;
+
+procedure TfCadTpUser.FormCreate(Sender: TObject);
+begin
+  sql := ' select Permissao.*,  Menu.DESCRICAO ' +
+        ' from Permissao '+
+        ' LEFT JOIN Menu ON Menu.ID = Permissao.IDMENU '+
+        ' where Permissao.IdUsuario = :ID ';
+
+  sql := sql +
+         ' order by Menu.DESCRICAO ';
+
+  Perm.Close;
+  Perm.sql.clear;
+  Perm.sql.add(sql);
+  Perm.ParamByName('ID').Value := 0;
+  Perm.Open;
+  Menu.Open;
+
+  inherited;
+
+
+end;
+
+procedure TfCadTpUser.acSalvarExecute(Sender: TObject);
+var
+  St : String;
+begin
+ if T.State in [dsinsert] then
+  St := 'I'
+ else
+  St := 'E';
+
+if TDescricao.Value = '' then
+ begin
+  Application.MessageBox('Descrição Não Preenchida!','Atenção');
+  DBEdit2.SetFocus;
+ end
+else
+  inherited;
+
+ if St = 'I' then
+  begin
+   Menu.Open;
+
+   Menu.First;
+    while Menu.Eof = false do
+     begin
+        Perm.Insert;
+        PermIdMenu.Value    := MenuId.Value;
+        PermIdUsuario.Value := TId.Value;
+        PermPermitido.VALUE := 'T';
+        Perm.Post;
+
+        Menu.Next;
+     end;
+  end
+ else
+  begin
+   Menu.Open;
+
+
+    Menu.First;
+    while Menu.Eof = false do
+     begin
+       DM.qSelect.Close;
+       DM.qSelect.SQL.Clear;
+       DM.qSelect.SQL.Add('select IdMenu from Permissao where IdMenu = '+MenuId.Text+
+                          ' and IdUsuario = '+TId.Text);
+       DM.qSelect.Open;
+
+       if DM.qSelect.IsEmpty then
+         begin
+           Perm.Insert;
+           PermIdMenu.Value    := MenuID.Value;
+           PermIdUsuario.Value := TID.Value;
+           PermPermitido.VALUE := 'T';
+           Perm.Post;
+          end;
+
+        Menu.Next;
+       end;
+  end;
+
+ Perm.Close;
+ Perm.sql.clear;
+ Perm.sql.add(sql);
+ Perm.ParamByName('ID').Value := TId.Value;
+ Perm.Open;
+end;
+
+procedure TfCadTpUser.TAfterScroll(DataSet: TDataSet);
+begin
+  inherited;
+  Perm.Close;
+  Perm.sql.clear;
+  Perm.sql.add(sql);
+  Perm.ParamByName('ID').Value := TId.Value;
+  Perm.Open;
+end;
+
+procedure TfCadTpUser.PermAfterPost(DataSet: TDataSet);
+begin
+  Perm.ApplyUpdates;
+end;
+
+procedure TfCadTpUser.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  dm.qParametro.close;
+  dm.qParametro.open;
+
+  dm.qUser.close;
+  dm.qUser.Open;
+
+  fMenu.permissao(fMenu.MainMenu1.Items);
+  sleep(100);
+  fmenu.Refresh;
+
+  inherited;
+
+end;
+
+end.
