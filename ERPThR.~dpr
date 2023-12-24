@@ -1,0 +1,36 @@
+program ERPThR;
+
+
+
+uses
+  Forms,
+  uLogin in 'uLogin.pas' {fLogin},
+  uMenu in 'uMenu.pas' {fMenu},
+  uDM in 'uDM.pas' {DM: TDataModule},
+  uFuncao in 'uFuncao.pas' {fFuncao},
+  envioEmail in 'envioEmail.pas',
+  uCadPadrao in 'uCadPadrao.pas' {fCadPadrao},
+  uDmImg in 'uDmImg.pas' {DmImg: TDataModule},
+  uCadCli in 'uCadCli.pas' {fCadCli},
+  uCadMenu in 'uCadMenu.pas' {fCadMenu},
+  uSobre in 'uSobre.pas' {fSobre},
+  uCadTpUser in 'uCadTpUser.pas' {fCadTpUser},
+  uCadUniMedida in 'uCadUniMedida.pas' {fCadUniMedida},
+  UCadFornecedor in 'UCadFornecedor.pas' {fCadFornecedor},
+  uCadParametro in 'uCadParametro.pas' {fCadParametro},
+  uCadMateriaPrima in 'uCadMateriaPrima.pas' {fCadMateriaPrima},
+  uCadFunc in 'uCadFunc.pas' {fCadFunc},
+  uCadProcesso in 'uCadProcesso.pas' {fCadProcesso},
+  uCadProduto in 'uCadProduto.pas' {fCadProduto},
+  uCadSemiAcabado in 'uCadSemiAcabado.pas' {fCadSemiAcabado};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.Title := 'ThR Soluções Ltda.';  
+  Application.CreateForm(TDM, DM);
+  Application.CreateForm(TfMenu, fMenu);
+  Application.CreateForm(TDmImg, DmImg);
+  Application.Run;
+end.

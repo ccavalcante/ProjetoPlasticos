@@ -1,0 +1,500 @@
+unit uBotoes;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, DB, IBCustomDataSet, IBQuery, DBCtrls, StdCtrls, jpeg, ExtCtrls,
+  ImgList, ComCtrls, XiButton, Mask, Grids, DBGrids, Buttons, ActnList, Menus,
+  ZAbstractRODataset, ZAbstractDataset, ZDataset;
+
+type
+  TfBotoes = class(TForm)
+    XiButton1: TXiButton;
+    cbMenu: TDBLookupComboBox;
+    XiButton2: TXiButton;
+    Label1: TLabel;
+    Label2: TLabel;
+    Edit1: TEdit;
+    Label3: TLabel;
+    rgTecla: TRadioGroup;
+    btEx: TBitBtn;
+    UpDown1: TUpDown;
+    ActionListEx: TActionList;
+    acExemplo: TAction;
+    Edit2: TEdit;
+    Label4: TLabel;
+    XiButton4: TXiButton;
+    Label5: TLabel;
+    acFechar: TAction;
+    Image3: TImage;
+    M: TZQuery;
+    D: TDataSource;
+    Midusuario: TIntegerField;
+    Midmenu: TIntegerField;
+    Mpermitido: TStringField;
+    Matalho: TStringField;
+    Mdescricao: TStringField;
+    Mnome: TStringField;
+    Mtipo: TStringField;
+    Mid: TIntegerField;
+    Midpermissao: TIntegerField;
+    Bevel1: TBevel;
+    Bevel2: TBevel;
+    procedure FormCreate(Sender: TObject);
+    procedure XiButton2Click(Sender: TObject);
+    procedure cbMenuClick(Sender: TObject);
+    procedure rgTeclaClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure acExemploExecute(Sender: TObject);
+    procedure Edit2Change(Sender: TObject);
+    function  AcertaCaption(sCaption: string): string;
+    procedure cbMenuKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure cbMenuKeyUp(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure XiButton4Click(Sender: TObject);
+    procedure acFecharExecute(Sender: TObject);
+
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  fBotoes: TfBotoes;
+  tec : string;
+
+implementation
+
+uses uDM, uMenu, uFuncao;
+
+{$R *.dfm}
+
+procedure TfBotoes.FormCreate(Sender: TObject);
+begin
+
+    M.Close;
+    M.ParamByName('usu').Value  := dm.qUserTipo.Value;  // TIPO DE USUARIO
+    M.ParamByName('per').Value  := 'T';
+    M.ParamByName('tp').Value   := 'M';
+    M.Open;
+    M.Prior;
+
+    rgTecla.Items.Clear;
+    rgTecla.Items.Add(fMenu.btF2.Caption);
+    rgTecla.Items.Add(fMenu.btF3.Caption);
+    rgTecla.Items.Add(fMenu.btF4.Caption);
+    rgTecla.Items.Add(fMenu.btF5.Caption);
+    rgTecla.Items.Add(fMenu.btF6.Caption);
+    rgTecla.Items.Add(fMenu.btF7.Caption);
+    rgTecla.Items.Add(fMenu.btF8.Caption);
+    rgTecla.Items.Add(fMenu.btF9.Caption);
+
+
+end;
+
+procedure TfBotoes.XiButton2Click(Sender: TObject);
+var i       : integer;
+    acExec  : TNotifyEvent;
+    valor_g : string;
+
+begin
+
+   if rgTecla.ItemIndex < 0  then exit;
+
+   if edit1.Text        = '' then exit;
+   // Busca no menu qual estava cadastrado esta tecla e limpa
+   dm.qPesq.Close;
+   dm.qPesq.SQL.Clear;
+   dm.qPesq.SQL.Add('select * from permissao '+
+                    ' where idusuario = '+ dm.qUserTipo.AsString +
+                    ' and permitido = ''T'' and atalho like :t'+
+                    ' order by atalho');
+   dm.qPesq.ParamByName('T').AsString := '%'+tec+'%';
+   dm.qPesq.Open;
+   while dm.qPesq.Eof = false do begin
+      ExecSql( 'Update permissao set permissao.atalho = null where permissao.id = ' + dm.qPesq.fieldbyname('id').AsString);
+      sleep(50);
+      dm.qPesq.Next;
+   end;
+
+    M.Close;
+    M.ParamByName('usu').Value  := dm.qUserTipo.Value;  // TIPO DE USUARIO
+    M.ParamByName('per').Value  := 'T';
+    M.ParamByName('tp').Value   := 'M';
+    M.Open;
+
+   if length(tec) = 2 then
+      valor_g := trim(tec) + '-(' + strzero(strtoint(edit2.Text),2) + ')'+'-'+trim(edit1.Text)
+   else if length(tec) = 3 then
+      valor_g := trim(tec) + '(' + strzero(strtoint(edit2.Text),2) + ')'+'-'+trim(edit1.Text);
+
+    // salva a tecla para o menu novo
+    ExecSql( 'Update permissao set permissao.atalho = ' + quotedstr( valor_g) +
+            ' where permissao.id = ' + inttostr(MIdPermissao.Value) );
+    sleep(100);
+
+    M.Close;
+    M.ParamByName('usu').Value  := dm.qUserTipo.Value;  // TIPO DE USUARIO
+    M.ParamByName('per').Value  := 'T';
+    M.ParamByName('tp').Value   := 'M';
+    M.Open;
+
+
+   // Varre todos os componentes do Form para remover a tecla de outro menu
+   with fMenu do Begin
+      for i := 0 to ComponentCount - 1 do begin
+         // Se for um MainMenu.
+         if Components[i] is TMenuItem then begin
+           // Varre os items.
+           if TMenuItem(Components[i]).ShortCut = texttoshortcut(tec) then begin
+              TMenuItem(Components[i]).ShortCut := texttoshortcut('');
+              acExec := TMenuItem(Components[i]).OnClick;
+              Break;
+           end;
+         end;
+      end;
+   end;
+
+   // Varre todos os componentes do Form
+   with fMenu do Begin
+      for i := 0 to ComponentCount - 1 do begin
+         // Se for um MainMenu.
+         if Components[i] is TMenuItem then begin
+           // Varre os items.
+           if AcertaCaption(TMenuItem(Components[i]).name) = trim(MNome.Value) then begin
+              TMenuItem(Components[i]).ShortCut := texttoshortcut(tec);
+              acExec := TMenuItem(Components[i]).OnClick;
+              Break;
+           end;
+         end;
+      end;
+   end;
+
+   rgTecla.Items[rgTecla.ItemIndex] := Tec + ' - ' + edit1.Text;
+
+   if tec = 'F2'  then begin
+      with fMenu do begin
+        acf2.Caption    := tec + ' - ' + edit1.Text;
+        acf2.ImageIndex := acExemplo.ImageIndex;
+        acf2.OnExecute  := acExec ;
+        btF2.Enabled    := true;
+        btF2.Visible    := true;
+        btF2.Caption    := fMenu.acf2.Caption;
+        ImageEx.GetBitmap(strtoint(edit2.Text),fMenu.btf2.Glyph);
+        btF2.Refresh;
+      end;
+   end
+   else
+   if tec = 'F3'  then begin
+      fMenu.btF3.Enabled    := true;
+      fMenu.btF3.Visible    := true;
+      fMenu.acf3.Caption    := tec + ' - ' + edit1.Text;
+      fmenu.acf3.ImageIndex := acExemplo.ImageIndex;
+      fMenu.acf3.OnExecute  := acExec;
+      fMenu.ImageEx.GetBitmap(strtoint(edit2.Text),fMenu.btf3.Glyph);
+      fMenu.btF3.Caption    := fMenu.acf3.Caption;
+      fMenu.btF3.Refresh;
+   end
+   else
+   if tec = 'F4'  then begin
+      fMenu.btF4.Enabled    := true;
+      fMenu.btF4.Visible    := true;
+      fMenu.acf4.Caption    := tec + ' - ' + edit1.Text;
+      fmenu.acf4.ImageIndex := acExemplo.ImageIndex;
+      fMenu.acf4.OnExecute  := acExec;
+      fMenu.ImageEx.GetBitmap(strtoint(edit2.Text),fMenu.btf4.Glyph);
+      fMenu.btF4.Caption    := fMenu.acf4.Caption;
+      fMenu.btF4.Refresh;
+   end
+   else
+   if tec = 'F5'  then begin
+      fMenu.btF5.Enabled    := true;
+      fMenu.btF5.Visible    := true;
+      fMenu.acf5.Caption    := tec + ' - ' + edit1.Text;
+      fmenu.acf5.ImageIndex := acExemplo.ImageIndex;
+      fMenu.acf5.OnExecute  := acExec;
+      fMenu.ImageEx.GetBitmap(strtoint(edit2.Text),fMenu.btf5.Glyph);
+      fMenu.btF5.Caption    := fMenu.acf5.Caption;
+      fMenu.btF5.Refresh;
+   end
+   else
+   if tec = 'F6'  then begin
+      fMenu.btF6.Enabled    := true;
+      fMenu.btF6.Visible    := true;
+      fMenu.acf6.Caption    := tec + ' - ' + edit1.Text;
+      fmenu.acf6.ImageIndex := acExemplo.ImageIndex;
+      fMenu.acf6.OnExecute  := acExec;
+      fMenu.ImageEx.GetBitmap(strtoint(edit2.Text),fMenu.btf6.Glyph);
+      fMenu.btF6.Caption    := fMenu.acf6.Caption;
+      fMenu.btF6.Refresh;
+   end
+   else
+   if tec = 'F7'  then begin
+      fMenu.btF7.Enabled    := true;
+      fMenu.btF7.Visible    := true;
+      fMenu.acf7.Caption    := tec + ' - ' + edit1.Text;
+      fmenu.acf7.ImageIndex := acExemplo.ImageIndex;
+      fMenu.acf7.OnExecute  := acExec;
+      fMenu.ImageEx.GetBitmap(strtoint(edit2.Text),fMenu.btf7.Glyph);
+      fMenu.btF7.Caption    := fMenu.acf7.Caption;
+      fMenu.btF7.Refresh;
+   end
+   else
+   if tec = 'F8'  then begin
+      fMenu.btF8.Enabled    := true;
+      fMenu.btF8.Visible    := true;
+      fMenu.acf8.Caption    := tec + ' - ' + edit1.Text;
+      fmenu.acf8.ImageIndex := acExemplo.ImageIndex;
+      fMenu.acf8.OnExecute  := acExec;
+      fMenu.ImageEx.GetBitmap(strtoint(edit2.Text),fMenu.btf8.Glyph);
+      fMenu.btF8.Caption    := fMenu.acf8.Caption;
+      fMenu.btF8.Refresh;
+   end
+   else
+   if tec = 'F9'  then begin
+      fMenu.btF9.Enabled    := true;
+      fMenu.btF9.Visible    := true;
+      fMenu.acf9.Caption    := tec + ' - ' + edit1.Text;
+      fmenu.acf9.ImageIndex := acExemplo.ImageIndex;
+      fMenu.acf9.OnExecute  := acExec;
+      fMenu.ImageEx.GetBitmap(strtoint(edit2.Text),fMenu.btf9.Glyph);
+      fMenu.btF9.Caption    := fMenu.acf9.Caption;
+      fMenu.btF9.Refresh;
+   end;
+   acExemplo.Caption := tec + ' - ' + edit1.Text;
+
+   // finaliza
+   rgTecla.ItemIndex := -1;
+   Edit1.Text        := '';
+   cbMenu.ListSource.DataSet.Prior;
+
+   fMenu.AlinhaBotoes;
+   fMenu.Refresh;
+
+
+
+
+end;
+
+procedure TfBotoes.cbMenuClick(Sender: TObject);
+var
+  i     : integer;
+  nMenu : String;
+begin
+
+   // Varre todos os componentes do Form para remover a tecla de outro menu
+   with fMenu do Begin
+      for i := 0 to ComponentCount - 1 do begin
+         // Se for um MainMenu.
+         if Components[i] is TMenuItem then begin
+           // Varre os items.
+           if TMenuItem(Components[i]).Name = trim(Mnome.Text) then begin
+              nMenu  := TMenuItem(Components[i]).Caption;
+              Break;
+           end;
+         end;
+      end;
+   end;
+   edit1.Text := copy(nMenu, 1, 12 );
+   btEx.Caption := tec + ' - ' + edit1.Text;
+
+end;
+
+procedure TfBotoes.rgTeclaClick(Sender: TObject);
+begin
+
+   cbMenu.Enabled := True;
+   cbMenu.ListSource.DataSet.Last;
+   cbMenu.ListSource.DataSet.Prior;
+   case  rgTecla.ItemIndex of
+    0: tec := 'F2' ;
+    1: tec := 'F3' ;
+    2: tec := 'F4' ;
+    3: tec := 'F5' ;
+    4: tec := 'F6' ;
+    5: tec := 'F7' ;
+    6: tec := 'F8' ;
+    7: tec := 'F9' ;
+   end;
+   label3.Caption := tec;
+
+end;
+
+
+
+procedure TfBotoes.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  Action := caFree;
+  fBotoes := nil;
+end;
+
+procedure TfBotoes.acExemploExecute(Sender: TObject);
+begin
+  // Showmessage('OK');
+end;
+
+procedure TfBotoes.Edit2Change(Sender: TObject);
+begin
+   updown1.Position := strtoint(edit2.Text);
+   BtEx.Glyph := nil;
+   fMenu.ImageEx.GetBitmap(UpDown1.Position,BtEx.Glyph);
+
+end;
+
+function TfBotoes.AcertaCaption(sCaption: string): string;
+begin
+   if Pos('&', sCaption) > 0 then Delete(sCaption, Pos('&', sCaption), 1);
+      Result := sCaption;
+end;
+
+
+
+procedure TfBotoes.cbMenuKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  cbMenuClick(Application);
+end;
+
+procedure TfBotoes.cbMenuKeyUp(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  cbMenuClick(Application);
+end;
+
+procedure TfBotoes.XiButton4Click(Sender: TObject);
+var
+  i       : integer;
+  acExec  : TNotifyEvent;
+begin
+
+   if rgTecla.ItemIndex < 0  then exit;
+
+   rgTecla.Items[rgTecla.ItemIndex] := trim(copy(Tec,1,3));
+
+   // Busca no menu qual estava cadastrado esta tecla e limpa
+   dm.qPesq.Close;
+   dm.qPesq.SQL.Clear;
+   dm.qPesq.SQL.Add('select * from permissao '+
+                    ' where idusuario = '+ dm.qUserTipo.AsString + // quotedstr(dm.qUsuariosCODIGO.AsString)+
+                    ' and permitido = ''T'' and atalho like :t'+
+                    ' order by atalho');
+   dm.qPesq.ParamByName('T').AsString := '%'+tec+'%';
+   dm.qPesq.Open;
+   while dm.qPesq.Eof = false do begin
+      ExecSql( 'Update permissao set permissao.atalho = null where permissao.id = ' + quotedstr( dm.qPesq.fieldbyname('id').AsString ));
+      dm.qPesq.Next;
+   end;
+    M.Close;
+    M.ParamByName('usu').Value  := dm.qUserTipo.Value;  // TIPO DE USUARIO
+    M.ParamByName('per').Value  := 'T';
+    M.ParamByName('tp').Value   := 'M';
+    M.Open;
+
+    // Varre todos os componentes do Form para remover a tecla de outro menu
+    with fMenu do Begin
+      for i := 0 to ComponentCount - 1 do begin
+         // Se for um MainMenu.
+         if Components[i] is TMenuItem then begin
+           // Varre os items.
+           if TMenuItem(Components[i]).ShortCut = texttoshortcut(tec) then begin
+              TMenuItem(Components[i]).ShortCut := texttoshortcut('');
+              acExec := TMenuItem(Components[i]).OnClick;
+              Break;
+           end;
+         end;
+      end;
+    end;
+
+    if tec = 'F2'  then begin
+      fMenu.acf2.Caption    :=  '';
+      fmenu.acf2.ImageIndex :=  -1;
+      fMenu.acf2.OnExecute  :=  nil;
+      fMenu.ImageEx.GetBitmap(-1,fMenu.btf2.Glyph);
+      fmenu.btF2.Caption    := tec;
+      fmenu.btF2.Enabled    := false;
+    end
+    else
+    if tec = 'F3'  then begin
+      fMenu.acf3.Caption    :=  '';
+      fmenu.acf3.ImageIndex :=  -1;
+      fMenu.acf3.OnExecute  :=  nil;
+      fMenu.ImageEx.GetBitmap(-1,fMenu.btf3.Glyph);
+      fmenu.btF3.Caption    := tec;
+      fmenu.btF3.Enabled    := false;
+    end
+    else
+    if tec = 'F4'  then begin
+      fMenu.acf4.Caption    :=  '';
+      fmenu.acf4.ImageIndex :=  -1;
+      fMenu.acf4.OnExecute  :=  nil;
+      fMenu.ImageEx.GetBitmap(-1,fMenu.btf4.Glyph);
+      fmenu.btF4.Caption    := tec;
+      fmenu.btF4.Enabled    := false;
+    end
+    else
+    if tec = 'F5'  then begin
+      fMenu.acf5.Caption    :=  '';
+      fmenu.acf5.ImageIndex :=  -1;
+      fMenu.acf5.OnExecute  :=  nil;
+      fMenu.ImageEx.GetBitmap(-1,fMenu.btf5.Glyph);
+      fmenu.btF5.Caption    := tec;
+      fmenu.btF5.Enabled    := false;
+    end
+    else
+    if tec = 'F6'  then begin
+      fMenu.acf6.Caption    :=  '';
+      fmenu.acf6.ImageIndex :=  -1;
+      fMenu.acf6.OnExecute  :=  nil;
+      fMenu.ImageEx.GetBitmap(-1,fMenu.btf6.Glyph);
+      fmenu.btF6.Caption    := tec;
+      fmenu.btF6.Enabled    := false;
+    end
+    else
+    if tec = 'F7'  then begin
+      fMenu.acf7.Caption    :=  '';
+      fmenu.acf7.ImageIndex :=  -1;
+      fMenu.acf7.OnExecute  :=  nil;
+      fMenu.ImageEx.GetBitmap(-1,fMenu.btf7.Glyph);
+      fmenu.btF7.Caption    := tec;
+      fmenu.btF7.Enabled    := false;
+    end
+    else
+    if tec = 'F8'  then begin
+      fMenu.acf8.Caption    :=  '';
+      fmenu.acf8.ImageIndex :=  -1;
+      fMenu.acf8.OnExecute  :=  nil;
+      fMenu.ImageEx.GetBitmap(-1,fMenu.btf8.Glyph);
+      fmenu.btF8.Caption    := tec;
+      fmenu.btF8.Enabled    := false;
+    end
+    else
+    if tec = 'F9'  then begin
+      fMenu.acf9.Caption    :=  '';
+      fmenu.acf9.ImageIndex :=  -1;
+      fMenu.acf9.OnExecute  :=  nil;
+      fMenu.ImageEx.GetBitmap(-1,fMenu.btf9.Glyph);
+      fmenu.btF9.Caption    := tec;
+      fmenu.btF9.Enabled    := false;
+    end;
+
+   acExemplo.Caption := '';
+   rgTecla.ItemIndex := -1;
+   btEx.Glyph.FreeImage;
+
+   fMenu.AlinhaBotoes;
+   fMenu.Refresh;
+
+
+
+end;
+
+procedure TfBotoes.acFecharExecute(Sender: TObject);
+begin
+  close;
+
+end;
+
+end.
